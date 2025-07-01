@@ -9,7 +9,7 @@ export default function Home() {
   const icons = iconImageSrcs;
   return (
     <Box>
-      <Grid container spacing={15} sx={{ mt: 10 }}>
+      <Grid container spacing={10} sx={{ mt: 10 }}>
         <Grid size={{ xs: 12, md: 4 }}>
           <Heading headingText="About me" />
         </Grid>
@@ -17,7 +17,7 @@ export default function Home() {
           <div style={{ marginRight: "20px" }}>
             {aboutItems.map((item, idx) => (
               <Box display={"flex"}>
-                <CodeIcon sx={{ color: "cyan", margin: 1, padding: 0.1 }} />
+                <CodeIcon sx={{ color: "#c1121f", margin: 1, padding: 0.1 }} />
                 <Typography
                   variant="h6"
                   sx={{
@@ -38,11 +38,29 @@ export default function Home() {
         <Grid size={{ md: 4, xs: 12 }}>
           <Heading headingText="Resumé" />
         </Grid>
-        <Grid size={{ md: 8, xs: 12 }}>
-          <Typography variant="h4" sx={{ textAlign: "left" }}>
+        <Grid
+          size={{ md: 8, xs: 12 }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ width: "100%", textAlign: { xs: "center", md: "left" } }}
+          >
             You can check out my resumé using the button below.
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "flex-start", mt: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", md: "flex-start" },
+              mt: 2,
+              width: "100%",
+            }}
+          >
             <Button
               variant="outlined"
               endIcon={<Description />}

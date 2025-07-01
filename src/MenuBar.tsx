@@ -1,4 +1,3 @@
-import "./MenuBar.css";
 import Anchor from "./Anchor";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -29,44 +28,34 @@ export default function MenuBar({ navTexts }: { navTexts: string[] }) {
     //   </Box>
     // </Box>
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "transparent" }}>
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: "transparent",
+          border: "none",
+          boxShadow: "none",
+        }}
+      >
         <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" sx={{ mr: 2 }}>
+          {/* <IconButton size="large" edge="start" color="inherit" sx={{ mr: 2 }}>
             <Avatar>
               <img src={logo}></img>
             </Avatar>
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" component="div">
-            Luke Salem
+            <Anchor id="btn-0" anchorText="Luke Salem" anchorLink="#Home" />
           </Typography>
           <Box sx={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
             {navTexts.map((n, idx) => (
-              <Button
-                key={idx}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                  },
-                }}
-              >
-                <Anchor id={`btn-${idx}`} anchorText={n} anchorLink={`#${n}`} />
-              </Button>
+              <Anchor
+                id={`btn-${idx + 1}`}
+                anchorText={n}
+                anchorLink={`#${n}`}
+              />
             ))}
           </Box>
           <Box sx={{ marginLeft: "auto" }}>
-            <Button
-              sx={{
-                "&:hover": {
-                  backgroundColor: "transparent",
-                },
-              }}
-            >
-              <Anchor
-                id="btn-4"
-                anchorLink="#Contact"
-                anchorText="Contact Me!"
-              />
-            </Button>
+            <Anchor id="btn-4" anchorText="Contact Me!" anchorLink="#Contact" />
           </Box>
         </Toolbar>
       </AppBar>

@@ -21,11 +21,12 @@ export default function Hero() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: "90vh",
         gap: 4,
+        boxSizing: "border-box",
       }}
     >
-      <Box sx={{ textAlign: "left" }}>
+      <Box sx={{ textAlign: "left", m: 0, p: 0 }}>
         <Typography variant="h1" sx={{ color: "cyan" }}>
           Hello,
         </Typography>
@@ -54,7 +55,7 @@ export default function Hero() {
           View my projects!
         </Button>
       </Box>
-      <img src={heroImg} />
+      <img src={heroImg} style={{ maxHeight: "80vh", height: "auto" }} />
     </Box>
   );
 }

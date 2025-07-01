@@ -10,7 +10,7 @@ export default function Heading({ headingText }: { headingText: string }) {
           display: "inline-block",
           fontWeight: "400",
           textAlign: "left",
-          borderBottom: "solid #00BCD4 3px",
+          borderBottom: "solid #00BCD4 2px",
           height: "70px",
           flexShrink: 0,
           pb: 0.5,

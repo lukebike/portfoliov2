@@ -1,4 +1,4 @@
-import Link from "@mui/material/Link";
+import Button from "@mui/material/Button";
 
 export default function Anchor({
   id,
@@ -9,23 +9,23 @@ export default function Anchor({
   anchorText: string;
   anchorLink: string;
 }) {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (anchorLink.startsWith("#")) {
-      e.preventDefault();
-      const hash = anchorLink.startsWith("#") ? anchorLink : `#${anchorLink}`;
-      if (window.location.hash === hash) {
-        window.location.hash = "";
-        setTimeout(() => {
-          window.location.hash = hash;
-        }, 0);
-      } else {
-        window.location.hash = hash;
-      }
-    }
-  };
+  // const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  //   if (anchorLink.startsWith("#")) {
+  //     e.preventDefault();
+  //     const hash = anchorLink.startsWith("#") ? anchorLink : `#${anchorLink}`;
+  //     if (window.location.hash === hash) {
+  //       window.location.hash = "";
+  //       setTimeout(() => {
+  //         window.location.hash = hash;
+  //       }, 0);
+  //     } else {
+  //       window.location.hash = hash;
+  //     }
+  //   }
+  // };
 
   return (
-    <Link
+    <Button
       href={anchorLink}
       key={id}
       sx={{
@@ -61,9 +61,9 @@ export default function Anchor({
           backgroundColor: "transparent",
         },
       }}
-      onClick={handleClick}
+      // onClick={handleClick}
     >
       {anchorText}
-    </Link>
+    </Button>
   );
 }
