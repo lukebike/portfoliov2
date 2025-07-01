@@ -4,10 +4,10 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import "./App.css";
-import Hero from "./Hero.tsx";
+import Home from "./Home.tsx";
 import MenuBar from "./MenuBar.tsx";
 import ContactForm from "./ContactForm.tsx";
-import Home from "./Home.tsx";
+import About from "./About.tsx";
 
 import { useEffect, useState } from "react";
 import CardList from "./CardList.tsx";
@@ -22,8 +22,8 @@ function App() {
   return (
     <>
       <MenuBar navTexts={["Home", "About Me", "Projects"]} />
-      {window.location.hash === "#Home" && <Hero />}
-      {window.location.hash === "#About%20Me" && <Home />}
+      {window.location.hash === "#Home" && <Home />}
+      {window.location.hash === "#About%20Me" && <About />}
       {window.location.hash === "#Projects" && <CardList />}
       {window.location.hash === "#Contact" && <ContactForm />}
     </>

@@ -1,8 +1,8 @@
 import Anchor from "./Anchor";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
-import logo from "/ls-high-resolution-logo.png";
-import { Avatar, Button, IconButton, Toolbar, Typography } from "@mui/material";
+// import logo from "/ls-high-resolution-logo.png";
+import { Toolbar, Typography } from "@mui/material";
 
 export default function MenuBar({ navTexts }: { navTexts: string[] }) {
   return (

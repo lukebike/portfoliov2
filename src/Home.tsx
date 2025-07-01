@@ -1,103 +1,67 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { iconImageSrcs } from "./images";
-import { aboutItems } from "./info";
-import Heading from "./Heading";
-import { Description } from "@mui/icons-material";
-import CodeIcon from "@mui/icons-material/Code";
+import { useEffect, useState } from "react";
+import heroImg from "/undraw_coding_joxb.svg";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
-export default function Home() {
-  const icons = iconImageSrcs;
+export default function Hero() {
+  const [mounted, setMounted] = useState(false);
+  const [fade, setFade] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleClick = () => {
+    setFade(true);
+    setTimeout(() => {
+      window.location.hash = "#Projects";
+    }, 500);
+  };
   return (
-    <Box>
-      <Grid container spacing={10} sx={{ mt: 10 }}>
-        <Grid size={{ xs: 12, md: 4 }}>
-          <Heading headingText="About me" />
-        </Grid>
-        <Grid size={{ md: 8, xs: 12 }}>
-          <div style={{ marginRight: "20px" }}>
-            {aboutItems.map((item, idx) => (
-              <Box display={"flex"}>
-                <CodeIcon sx={{ color: "#c1121f", margin: 1, padding: 0.1 }} />
-                <Typography
-                  variant="h6"
-                  sx={{
-                    textAlign: "left",
-                    fontWeight: "300",
-                    margin: "5px",
-                    flexShrink: "1",
-                    overflowWrap: "break-word",
-                  }}
-                  key={idx}
-                >
-                  {item}
-                </Typography>
-              </Box>
-            ))}
-          </div>
-        </Grid>
-        <Grid size={{ md: 4, xs: 12 }}>
-          <Heading headingText="Resumé" />
-        </Grid>
-        <Grid
-          size={{ md: 8, xs: 12 }}
+    <Box
+      sx={{
+        transition: "opacity 0.5s ease-in-out",
+        opacity: mounted && !fade ? 1 : 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "90vh",
+        gap: 4,
+        boxSizing: "border-box",
+      }}
+    >
+      <Box sx={{ textAlign: "left", m: 0, p: 0 }}>
+        <Typography variant="h1" sx={{ color: "cyan" }}>
+          Hello,
+        </Typography>
+        <Typography variant="h2" textAlign="left">
+          My name is Luke Salem
+        </Typography>
+        <p>
+          I'm a developer in{" "}
+          <code>
+            {"<>"}development.{"</>"}
+          </code>
+        </p>
+        <Button
+          variant="contained"
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: { xs: "center", md: "flex-start" },
-            textAlign: { xs: "center", md: "left" },
+            marginTop: "10px",
+            backgroundColor: "#c1121f",
+            transition:
+              "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+            "&:hover": {
+              backgroundColor: "#780000",
+              color: "black",
+            },
           }}
+          onClick={handleClick}
         >
-          <Typography
-            variant="h4"
-            sx={{ width: "100%", textAlign: { xs: "center", md: "left" } }}
-          >
-            You can check out my resumé using the button below.
-          </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: { xs: "center", md: "flex-start" },
-              mt: 2,
-              width: "100%",
-            }}
-          >
-            <Button
-              variant="outlined"
-              endIcon={<Description />}
-              href="/CV.pdf"
-              download
-            >
-              Resumé
-            </Button>
-          </Box>
-        </Grid>
-        <Grid size={{ md: 4, xs: 12 }}>
-          <Heading headingText="Skills" />
-        </Grid>
-        <Grid size={{ md: 8, xs: 12 }}>
-          <div
-            style={{
-              display: "flex",
-
-              justifyContent: "flex-start",
-            }}
-          >
-            {icons.map((src, idx) => (
-              <Box
-                key={idx}
-                component="img"
-                src={src}
-                alt=""
-                sx={{
-                  width: { xs: 28, sm: 48 },
-                  height: { xs: 28, sm: 48 },
-                  marginRight: "10px",
-                }}
-              />
-            ))}
-          </div>
-        </Grid>
-      </Grid>
+          View my projects!
+        </Button>
+      </Box>
+      <img src={heroImg} style={{ maxHeight: "80vh", height: "auto" }} />
     </Box>
   );
 }

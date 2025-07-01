@@ -1,5 +1,4 @@
 import cocktailImg from "./assets/cocktailproject.png";
-import Anchor from "./Anchor";
 import { Button } from "@mui/material";
 
 type CardTypes = {

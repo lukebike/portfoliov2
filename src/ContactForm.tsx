@@ -31,7 +31,7 @@ function ContactForm() {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center min-h-screen transition-opacity duration-700 ease-out ${
+      className={`flex flex-col items-center justify-center min-h-screen transition-opacity duration-800 ease-out ${
         mounted ? "opacity-100" : "opacity-0"
       }`}
     >
