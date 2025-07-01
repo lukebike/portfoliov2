@@ -2,7 +2,8 @@
 @plugin "daisyui";
 
 :root {
-  background-color: rgba(28, 28, 32, 255);
+  /* background-color: rgba(28, 28, 32, 255); */
+  background-color: #121212;
   /* background-image: url(https://images.unsplash.com/photo-1515879218367-8466d910aaa4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8); */
   background-size: cover;
   background-repeat: no-repeat;

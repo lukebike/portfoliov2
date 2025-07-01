@@ -6,7 +6,7 @@ export default function Home() {
   const icons = iconImageSrcs;
   return (
     <Box>
-      <Grid container spacing={10} sx={{ mt: 10 }}>
+      <Grid container spacing={15} sx={{ mt: 10 }}>
         <Grid size={{ xs: 12, md: 4 }}>
           <Typography
             variant="h2"
@@ -20,9 +20,10 @@ export default function Home() {
           </Typography>
         </Grid>
         <Grid size={{ md: 8, xs: 12 }}>
-          <ul style={{ textAlign: "center", marginRight: "20px" }}>
+          <div style={{ marginRight: "20px" }}>
             {aboutItems.map((item, idx) => (
-              <li
+              <Typography
+                variant="h6"
                 style={{
                   margin: "5px",
                   flexShrink: "1",
@@ -31,16 +32,15 @@ export default function Home() {
                 key={idx}
               >
                 {item}
-              </li>
+              </Typography>
             ))}
-          </ul>
+          </div>
         </Grid>
         <Grid size={{ md: 4, xs: 12 }}>
           <Typography
             variant="h2"
             sx={{
               borderBottom: "solid #00BCD4 3px",
-              height: "70px",
             }}
           >
             Resumé
@@ -50,7 +50,9 @@ export default function Home() {
           <Typography variant="h4" sx={{ textAlign: "center" }}>
             You can check out my resumé using the button below.
           </Typography>
-          <Button variant="outlined">Resumé</Button>
+          <Button variant="outlined" sx={{ mt: 2 }}>
+            Resumé
+          </Button>
         </Grid>
         <Grid size={{ md: 4, xs: 12 }}>
           <Typography

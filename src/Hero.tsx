@@ -43,8 +43,10 @@ export default function Hero() {
           sx={{
             marginTop: "10px",
             backgroundColor: "#c1121f",
+
             "&:hover": {
               backgroundColor: "#780000",
+              color: "black",
             },
           }}
           onClick={handleClick}
