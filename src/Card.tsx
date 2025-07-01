@@ -1,5 +1,6 @@
 import cocktailImg from "./assets/cocktailproject.png";
 import Anchor from "./Anchor";
+import { Button } from "@mui/material";
 
 type CardTypes = {
   img?: string;
@@ -28,11 +29,22 @@ function Card({
         <h2 className="card-title text-center">{cardTitle}</h2>
         <p>{cardText}</p>
         <div className="card-actions justify-end">
-          <Anchor
-            id={cardTitle}
-            anchorText={anchorText}
-            anchorLink={anchorLink}
-          />
+          <Button
+            href={anchorLink}
+            variant="contained"
+            sx={{
+              marginTop: "10px",
+              backgroundColor: "#c1121f",
+              transition:
+                "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+              "&:hover": {
+                backgroundColor: "#780000",
+                color: "black",
+              },
+            }}
+          >
+            {anchorText}
+          </Button>
         </div>
       </div>
     </div>

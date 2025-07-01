@@ -1,5 +1,5 @@
 import { useState } from "react";
-import heroImg from "./assets/63722375-removebg-preview.png";
+import heroImg from "/undraw_coding_joxb.svg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -44,7 +44,8 @@ export default function Hero() {
           sx={{
             marginTop: "10px",
             backgroundColor: "#c1121f",
-
+            transition:
+              "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
             "&:hover": {
               backgroundColor: "#780000",
               color: "black",
