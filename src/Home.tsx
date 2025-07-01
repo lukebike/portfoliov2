@@ -3,6 +3,7 @@ import { iconImageSrcs } from "./images";
 import { aboutItems } from "./info";
 import Heading from "./Heading";
 import { Description } from "@mui/icons-material";
+import CodeIcon from "@mui/icons-material/Code";
 
 export default function Home() {
   const icons = iconImageSrcs;
@@ -15,17 +16,22 @@ export default function Home() {
         <Grid size={{ md: 8, xs: 12 }}>
           <div style={{ marginRight: "20px" }}>
             {aboutItems.map((item, idx) => (
-              <Typography
-                variant="h6"
-                style={{
-                  margin: "5px",
-                  flexShrink: "1",
-                  overflowWrap: "break-word",
-                }}
-                key={idx}
-              >
-                {item}
-              </Typography>
+              <Box display={"flex"}>
+                <CodeIcon sx={{ color: "cyan", margin: 1, padding: 0.1 }} />
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: "left",
+                    fontWeight: "300",
+                    margin: "5px",
+                    flexShrink: "1",
+                    overflowWrap: "break-word",
+                  }}
+                  key={idx}
+                >
+                  {item}
+                </Typography>
+              </Box>
             ))}
           </div>
         </Grid>
@@ -33,18 +39,19 @@ export default function Home() {
           <Heading headingText="Resumé" />
         </Grid>
         <Grid size={{ md: 8, xs: 12 }}>
-          <Typography variant="h4" sx={{ textAlign: "center" }}>
+          <Typography variant="h4" sx={{ textAlign: "left" }}>
             You can check out my resumé using the button below.
           </Typography>
-          <Button
-            variant="outlined"
-            sx={{ mt: 2 }}
-            endIcon={<Description />}
-            href="/CV.pdf"
-            download
-          >
-            Resumé
-          </Button>
+          <Box sx={{ display: "flex", justifyContent: "flex-start", mt: 2 }}>
+            <Button
+              variant="outlined"
+              endIcon={<Description />}
+              href="/CV.pdf"
+              download
+            >
+              Resumé
+            </Button>
+          </Box>
         </Grid>
         <Grid size={{ md: 4, xs: 12 }}>
           <Heading headingText="Skills" />
@@ -53,16 +60,21 @@ export default function Home() {
           <div
             style={{
               display: "flex",
-              alignContent: "center",
-              justifyContent: "center",
+
+              justifyContent: "flex-start",
             }}
           >
             {icons.map((src, idx) => (
-              <img
+              <Box
                 key={idx}
+                component="img"
                 src={src}
                 alt=""
-                style={{ width: 48, height: 48, marginLeft: "10px" }}
+                sx={{
+                  width: { xs: 28, sm: 48 },
+                  height: { xs: 28, sm: 48 },
+                  marginRight: "10px",
+                }}
               />
             ))}
           </div>
