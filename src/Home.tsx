@@ -1,6 +1,8 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { iconImageSrcs } from "./images";
 import { aboutItems } from "./info";
+import Heading from "./Heading";
+import { Description } from "@mui/icons-material";
 
 export default function Home() {
   const icons = iconImageSrcs;
@@ -8,16 +10,7 @@ export default function Home() {
     <Box>
       <Grid container spacing={15} sx={{ mt: 10 }}>
         <Grid size={{ xs: 12, md: 4 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              borderBottom: "solid #00BCD4 3px",
-              height: "70px",
-              flexShrink: 0,
-            }}
-          >
-            About me
-          </Typography>
+          <Heading headingText="About me" />
         </Grid>
         <Grid size={{ md: 8, xs: 12 }}>
           <div style={{ marginRight: "20px" }}>
@@ -37,33 +30,24 @@ export default function Home() {
           </div>
         </Grid>
         <Grid size={{ md: 4, xs: 12 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              borderBottom: "solid #00BCD4 3px",
-            }}
-          >
-            Resumé
-          </Typography>
+          <Heading headingText="Resumé" />
         </Grid>
         <Grid size={{ md: 8, xs: 12 }}>
           <Typography variant="h4" sx={{ textAlign: "center" }}>
             You can check out my resumé using the button below.
           </Typography>
-          <Button variant="outlined" sx={{ mt: 2 }}>
+          <Button
+            variant="outlined"
+            sx={{ mt: 2 }}
+            endIcon={<Description />}
+            href="/CV.pdf"
+            download
+          >
             Resumé
           </Button>
         </Grid>
         <Grid size={{ md: 4, xs: 12 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              borderBottom: "solid #00BCD4 3px",
-              height: "70px",
-            }}
-          >
-            Skills
-          </Typography>
+          <Heading headingText="Skills" />
         </Grid>
         <Grid size={{ md: 8, xs: 12 }}>
           <div
