@@ -14,6 +14,11 @@ import CardList from "./CardList.tsx";
 function App() {
   const [hash, setHash] = useState(window.location.hash);
 
+  //TODO: Mobile Navbar
+  //TODO: Contact info mobile
+  //TODO: Home Page Mobile
+  //TODO:
+
   useEffect(() => {
     const onHashChange = () => setHash(window.location.hash);
     window.addEventListener("hashchange", onHashChange);
