@@ -2,7 +2,7 @@ import Anchor from "./Anchor";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 // import logo from "/ls-high-resolution-logo.png";
-import { Toolbar, Typography } from "@mui/material";
+import { CssBaseline, Toolbar, Typography } from "@mui/material";
 
 export default function MenuBar({ navTexts }: { navTexts: string[] }) {
   return (
@@ -27,8 +27,9 @@ export default function MenuBar({ navTexts }: { navTexts: string[] }) {
     //     />
     //   </Box>
     // </Box>
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ display: "flex" }}>
       <AppBar
+        component="nav"
         position="static"
         sx={{
           backgroundColor: "transparent",

@@ -3,10 +3,12 @@ import heroImg from "/undraw_coding_joxb.svg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [fade, setFade] = useState(false);
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     setMounted(true);
@@ -24,21 +26,25 @@ export default function Hero() {
         transition: "opacity 0.5s ease-in-out",
         opacity: mounted && !fade ? 1 : 0,
         display: "flex",
+        flexDirection: isMobile ? "column" : "row",
         justifyContent: "center",
         alignItems: "center",
-        height: "90vh",
-        gap: 4,
+        height: isMobile ? "auto" : "90vh",
+        minHeight: isMobile ? "100vh" : "50vh",
+        gap: { xs: 2, sm: 4 },
+        px: { xs: 2, sm: 0 },
+        py: { xs: 4, sm: 0 },
         boxSizing: "border-box",
       }}
     >
-      <Box sx={{ textAlign: "left", m: 0, p: 0 }}>
-        <Typography variant="h1" sx={{ color: "cyan" }}>
+      <Box sx={{ textAlign: { xs: "center", sm: "left" }, m: 0, p: 0 }}>
+        <Typography variant={isMobile ? "h3" : "h1"} sx={{ color: "cyan" }}>
           Hello,
         </Typography>
-        <Typography variant="h2" textAlign="left">
+        <Typography variant={isMobile ? "h4" : "h2"} textAlign="left">
           My name is Luke Salem
         </Typography>
-        <p>
+        <p style={{ textAlign: "left" }}>
           I'm a developer in{" "}
           <code>
             {"<>"}development.{"</>"}
@@ -55,13 +61,22 @@ export default function Hero() {
               backgroundColor: "#780000",
               color: "black",
             },
+            width: { xs: "100%", sm: "auto" },
           }}
           onClick={handleClick}
         >
           View my projects!
         </Button>
       </Box>
-      <img src={heroImg} style={{ maxHeight: "80vh", height: "auto" }} />
+      <img
+        src={heroImg}
+        style={{
+          maxWidth: isMobile ? "80vw" : "auto",
+          maxHeight: isMobile ? "30vh" : "80vh",
+          height: "auto",
+          marginTop: isMobile ? 24 : 0,
+        }}
+      />
     </Box>
   );
 }
