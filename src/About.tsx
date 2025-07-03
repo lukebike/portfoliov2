@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
 import { iconImageSrcs } from "./images";
 import { aboutItems } from "./info";
 import Heading from "./Heading";
@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const icons = iconImageSrcs;
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     setMounted(true);
@@ -24,21 +25,34 @@ export default function Home() {
         <Grid size={{ md: 8, xs: 12 }}>
           <div style={{ marginRight: "20px" }}>
             {aboutItems.map((item, idx) => (
-              <Box display={"flex"}>
-                <CodeIcon sx={{ color: "#c1121f", margin: 1, padding: 0.1 }} />
-                <Typography
-                  variant="h6"
+              <Box display={"flex"} sx={{ flexDirection: "row" }}>
+                <CodeIcon
                   sx={{
-                    textAlign: "left",
-                    fontWeight: "300",
-                    margin: "5px",
-                    flexShrink: "1",
-                    overflowWrap: "break-word",
+                    color: "#c1121f",
+                    margin: 1,
+                    marginTop: 2,
+                    padding: 0.1,
                   }}
-                  key={idx}
-                >
-                  {item}
-                </Typography>
+                />
+                {isMobile ? (
+                  <p style={{ marginTop: "15px" }} key={idx}>
+                    {item}
+                  </p>
+                ) : (
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      textAlign: "left",
+                      fontWeight: "300",
+                      margin: "5px",
+                      flexShrink: "1",
+                      overflowWrap: "break-word",
+                    }}
+                    key={idx}
+                  >
+                    {item}
+                  </Typography>
+                )}
               </Box>
             ))}
           </div>

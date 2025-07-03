@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       {isMobile ? (
-        <MobileMenuBar navTexts={["Home", "About Me", "Projects"]} />
+        <MobileMenuBar navTexts={["Home", "About Me", "Projects", "Contact"]} />
       ) : (
         <MenuBar navTexts={["Home", "About Me", "Projects"]} />
       )}
