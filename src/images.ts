@@ -11,6 +11,11 @@ import reactColored from "./icons/react-colored.svg";
 import springbootColored from "./icons/springboot-colored.svg";
 import typescriptColored from "./icons/typescript-colored.svg";
 import visualstudiocodeColored from "./icons/visualstudiocode-colored.svg";
+import bootstrap from "./icons/bootstrap-5.svg";
+import bulma from "./icons/bulma.svg";
+import materialUI from "./icons/material-ui-svg.svg";
+import postman from "./icons/postman-icon-svgrepo-com.svg";
+import sqlite from "./icons/sqlite.svg";
 
 export const iconImageSrcs = [
   css3Colored,
@@ -25,4 +30,9 @@ export const iconImageSrcs = [
   springbootColored,
   typescriptColored,
   visualstudiocodeColored,
+  bootstrap,
+  bulma,
+  materialUI,
+  postman,
+  sqlite,
 ];

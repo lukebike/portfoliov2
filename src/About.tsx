@@ -18,26 +18,31 @@ export default function Home() {
     <Box
       sx={{ opacity: mounted ? 1 : 0, transition: "opacity 0.8s ease-in-out" }}
     >
-      <Grid container spacing={10} sx={{ mt: 10 }}>
+      <Grid container spacing={isMobile ? 5 : 10} sx={{ mt: 10 }}>
         <Grid size={{ xs: 12, md: 4 }}>
           <Heading headingText="About me" />
         </Grid>
         <Grid size={{ md: 8, xs: 12 }}>
-          <div style={{ marginRight: "20px" }}>
+          <Box style={{ marginRight: "20px" }}>
             {aboutItems.map((item, idx) => (
               <Box display={"flex"} sx={{ flexDirection: "row" }}>
                 <CodeIcon
                   sx={{
                     color: "#c1121f",
-                    margin: 1,
-                    marginTop: 2,
+                    marginRight: 2,
+                    marginBottom: 1,
+                    marginTop: isMobile ? 2 : 1,
                     padding: 0.1,
                   }}
                 />
                 {isMobile ? (
-                  <p style={{ marginTop: "15px" }} key={idx}>
+                  <Typography
+                    variant="body1"
+                    style={{ marginTop: "15px" }}
+                    key={idx}
+                  >
                     {item}
-                  </p>
+                  </Typography>
                 ) : (
                   <Typography
                     variant="h6"
@@ -55,7 +60,7 @@ export default function Home() {
                 )}
               </Box>
             ))}
-          </div>
+          </Box>
         </Grid>
         <Grid size={{ md: 4, xs: 12 }}>
           <Heading headingText="Resumé" />
@@ -70,7 +75,7 @@ export default function Home() {
           }}
         >
           <Typography
-            variant="h4"
+            variant={isMobile ? "h6" : "h4"}
             sx={{ width: "100%", textAlign: { xs: "center", md: "left" } }}
           >
             You can check out my resumé using the button below.
@@ -98,10 +103,10 @@ export default function Home() {
           <Heading headingText="Skills" />
         </Grid>
         <Grid size={{ md: 8, xs: 12 }}>
-          <div
+          <Box
             style={{
               display: "flex",
-
+              flexWrap: "wrap",
               justifyContent: "flex-start",
             }}
           >
@@ -110,7 +115,7 @@ export default function Home() {
                 key={idx}
                 component="img"
                 src={src}
-                alt=""
+                alt={`${src}-icon`}
                 sx={{
                   width: { xs: 28, sm: 48 },
                   height: { xs: 28, sm: 48 },
@@ -118,7 +123,7 @@ export default function Home() {
                 }}
               />
             ))}
-          </div>
+          </Box>
         </Grid>
       </Grid>
     </Box>
