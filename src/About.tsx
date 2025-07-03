@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
-import { iconImageSrcs } from "./images";
+import IconGrid from "./IconGrid";
 import { aboutItems } from "./info";
 import Heading from "./Heading";
 import { Description } from "@mui/icons-material";
@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const icons = iconImageSrcs;
   const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
@@ -25,7 +24,7 @@ export default function Home() {
         <Grid size={{ md: 8, xs: 12 }}>
           <Box style={{ marginRight: "20px" }}>
             {aboutItems.map((item, idx) => (
-              <Box display={"flex"} sx={{ flexDirection: "row" }}>
+              <Box display={"flex"} key={idx} sx={{ flexDirection: "row" }}>
                 <CodeIcon
                   sx={{
                     color: "#c1121f",
@@ -110,19 +109,7 @@ export default function Home() {
               justifyContent: "flex-start",
             }}
           >
-            {icons.map((src, idx) => (
-              <Box
-                key={idx}
-                component="img"
-                src={src}
-                alt={`${src}-icon`}
-                sx={{
-                  width: { xs: 28, sm: 48 },
-                  height: { xs: 28, sm: 48 },
-                  marginRight: "10px",
-                }}
-              />
-            ))}
+            <IconGrid />
           </Box>
         </Grid>
       </Grid>

@@ -1,12 +1,9 @@
-import useMediaQuery from "@mui/material/useMediaQuery";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -29,7 +26,7 @@ export default function MobileMenuBar({ navTexts }: { navTexts: string[] }) {
       </Typography>
       <List sx={{}}>
         {navTexts.map((item, idx) => (
-          <ListItem>
+          <ListItem key={idx}>
             <Anchor
               id={`btn-${idx + 1}`}
               anchorText={item}

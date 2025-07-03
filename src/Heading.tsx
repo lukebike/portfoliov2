@@ -8,7 +8,7 @@ export default function Heading({ headingText }: { headingText: string }) {
     <Box
       sx={{
         textAlign: isMobile ? "center" : "left",
-        marginLeft: !isMobile && "40px",
+        ...(isMobile ? {} : { marginLeft: "40px" }),
       }}
     >
       <Typography
