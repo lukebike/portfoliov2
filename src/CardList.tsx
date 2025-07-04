@@ -4,6 +4,7 @@ import { MediaCard } from "./MediaCard";
 import type { CardTypes } from "./MediaCard";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 export default function CardList() {
   const [mounted, setMounted] = useState(false);
@@ -15,14 +16,30 @@ export default function CardList() {
   return (
     <Box
       sx={{
-        mt: 6,
         transition: "opacity 0.7s ease-in",
         opacity: mounted ? 1 : 0,
+        minHeight: { lg: "80vh", md: "80vh" },
+        display: { lg: "flex" },
+        flexDirection: "column",
+        justifyContent: { lg: "center" },
+        alignItems: { lg: "center" },
       }}
     >
+      <Typography
+        variant="h3"
+        sx={{
+          color: "#00BCD4",
+          fontWeight: "bold",
+          mt: { xs: 10 },
+          mb: { lg: 20, xs: 10 },
+          textAlign: "center",
+        }}
+      >
+        My Projects
+      </Typography>
       <Grid container spacing={4} justifyContent="center" alignItems="stretch">
         {cards.map((card: CardTypes, idx: number) => (
-          <Grid key={idx} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+          <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 3 }}>
             <MediaCard {...card} />
           </Grid>
         ))}

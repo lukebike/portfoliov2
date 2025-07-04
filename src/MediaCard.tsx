@@ -21,13 +21,12 @@ function MediaCard({
   anchorText,
   anchorLink,
 }: CardTypes) {
-  const isMobile = useMediaQuery("(max-width:600px)");
   return (
     <Card
       sx={{
         position: "relative",
-        width: isMobile ? 350 : 384,
-        marginRight: isMobile ? 50 : 0,
+        width: { xs: 350, md: 384, lg: 500 },
+
         backgroundColor: "#1e1e1e",
         minHeight: "400",
         overflow: "hidden",
