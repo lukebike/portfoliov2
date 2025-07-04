@@ -14,12 +14,6 @@ export default function Hero() {
     setMounted(true);
   }, []);
 
-  const handleClick = () => {
-    setFade(true);
-    setTimeout(() => {
-      window.location.hash = "#Projects";
-    }, 500);
-  };
   return (
     <Box
       sx={{
@@ -38,19 +32,23 @@ export default function Hero() {
       }}
     >
       <Box sx={{ textAlign: { xs: "center", sm: "left" }, m: 0, p: 0 }}>
-        <Typography variant={isMobile ? "h3" : "h1"} sx={{ color: "cyan" }}>
+        <Typography variant={isMobile ? "h3" : "h1"} sx={{ color: "#00BCD4" }}>
           Hello,
         </Typography>
-        <Typography variant={isMobile ? "h4" : "h2"} textAlign="left">
+        <Typography
+          variant={isMobile ? "h4" : "h2"}
+          textAlign={{ xs: "center", sm: "left" }}
+        >
           My name is Luke Salem
         </Typography>
-        <p style={{ textAlign: "left" }}>
+        <p style={{ textAlign: isMobile ? "center" : "left" }}>
           I'm a developer in{" "}
           <code>
             {"<>"}development.{"</>"}
           </code>
         </p>
         <Button
+          href="#Projects"
           variant="contained"
           sx={{
             marginTop: "10px",
@@ -63,7 +61,6 @@ export default function Hero() {
             },
             width: { xs: "100%", sm: "auto" },
           }}
-          onClick={handleClick}
         >
           View my projects!
         </Button>

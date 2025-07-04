@@ -22,13 +22,13 @@ export default function MobileMenuBar({ navTexts }: { navTexts: string[] }) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <Anchor id="btn1" anchorText="Luke Salem" anchorLink="#Home" />
+        <Anchor key="btn-0" anchorText="Luke Salem" anchorLink="#Home" />
       </Typography>
       <List sx={{}}>
         {navTexts.map((item, idx) => (
           <ListItem key={idx}>
             <Anchor
-              id={`btn-${idx + 1}`}
+              key={`btn-${idx + 1}`}
               anchorText={item}
               anchorLink={`#${item}`}
             />

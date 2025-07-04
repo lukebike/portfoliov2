@@ -1,11 +1,9 @@
 import Button from "@mui/material/Button";
 
 export default function Anchor({
-  id,
   anchorText,
   anchorLink = "",
 }: {
-  id: string;
   anchorText: string;
   anchorLink: string;
 }) {
@@ -27,7 +25,6 @@ export default function Anchor({
   return (
     <Button
       href={anchorLink}
-      key={id}
       sx={{
         color: "white",
         fontWeight: "normal",

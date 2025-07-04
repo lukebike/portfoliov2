@@ -44,19 +44,23 @@ export default function MenuBar({ navTexts }: { navTexts: string[] }) {
             </Avatar>
           </IconButton> */}
           <Typography variant="h6" component="div">
-            <Anchor id="btn-0" anchorText="Luke Salem" anchorLink="#Home" />
+            <Anchor key="btn-0" anchorText="Luke Salem" anchorLink="#Home" />
           </Typography>
           <Box sx={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
             {navTexts.map((n, idx) => (
               <Anchor
-                id={`btn-${idx + 1}`}
+                key={`btn-${idx + 1}`}
                 anchorText={n}
                 anchorLink={`#${n}`}
               />
             ))}
           </Box>
           <Box sx={{ marginLeft: "auto" }}>
-            <Anchor id="btn-4" anchorText="Contact Me!" anchorLink="#Contact" />
+            <Anchor
+              key="btn-4"
+              anchorText="Contact Me!"
+              anchorLink="#Contact"
+            />
           </Box>
         </Toolbar>
       </AppBar>
