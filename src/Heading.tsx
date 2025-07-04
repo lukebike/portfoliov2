@@ -16,7 +16,8 @@ export default function Heading({ headingText }: { headingText: string }) {
         sx={{
           display: "inline-block",
           fontWeight: "400",
-          textAlign: isMobile ? "center" : "left",
+          textAlign: { xs: "center", lg: "left", md: "center" },
+          whiteSpace: "nowrap",
           borderBottom: "solid #00BCD4 2px",
           height: "70px",
           flexShrink: 0,

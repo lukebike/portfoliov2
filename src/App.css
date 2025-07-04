@@ -25,18 +25,18 @@ body,
   min-height: 100vh;
   min-width: 100vw;
   height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   padding: 1rem;
   position: relative;
   position: relative;
   z-index: 1;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 1000px) {
   body,
   #root {
-    overflow: auto;
+    overflow: hidden;
   }
 }

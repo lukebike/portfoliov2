@@ -15,9 +15,16 @@ export default function Home() {
   }, []);
   return (
     <Box
-      sx={{ opacity: mounted ? 1 : 0, transition: "opacity 0.8s ease-in-out" }}
+      sx={{
+        opacity: mounted ? 1 : 0,
+        transition: "opacity 0.8s ease-in-out",
+        height: { lg: "80vh" },
+        display: { lg: "flex" },
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
-      <Grid container spacing={isMobile ? 5 : 10} sx={{ mt: 10 }}>
+      <Grid container spacing={{ xs: 5, lg: 10, md: 20 }} sx={{ mt: 10 }}>
         <Grid size={{ xs: 12, md: 4 }}>
           <Heading headingText="About me" />
         </Grid>
@@ -30,7 +37,7 @@ export default function Home() {
                     color: "#c1121f",
                     marginRight: 2,
                     marginBottom: 1,
-                    marginTop: isMobile ? 2 : 1,
+                    marginTop: { xs: 2, lg: 1, md: "10px" },
                     padding: 0.1,
                   }}
                 />
@@ -50,7 +57,6 @@ export default function Home() {
                       fontWeight: "300",
                       margin: "5px",
                       flexShrink: "1",
-                      overflowWrap: "break-word",
                     }}
                     key={idx}
                   >

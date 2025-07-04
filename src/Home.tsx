@@ -20,7 +20,7 @@ export default function Hero() {
         transition: "opacity 0.5s ease-in-out",
         opacity: mounted && !fade ? 1 : 0,
         display: "flex",
-        flexDirection: isMobile ? "column" : "row",
+        flexDirection: { lg: "row", md: "column", xs: "column" },
         justifyContent: "center",
         alignItems: "center",
         height: isMobile ? "auto" : "90vh",
@@ -36,17 +36,25 @@ export default function Hero() {
           Hello,
         </Typography>
         <Typography
-          variant={isMobile ? "h4" : "h2"}
+          sx={{
+            fontSize: {
+              xs: "1rem", // mobile
+              sm: "1.25rem", // tablets (≥600px)
+              md: "1.5rem", // desktop (≥900px)
+            },
+          }}
           textAlign={{ xs: "center", sm: "left" }}
         >
           My name is Luke Salem
         </Typography>
-        <p style={{ textAlign: isMobile ? "center" : "left" }}>
+        <Typography
+          sx={{ textAlign: { lg: "left", xs: "center", md: "center" } }}
+        >
           I'm a developer in{" "}
           <code>
             {"<>"}development.{"</>"}
           </code>
-        </p>
+        </Typography>
         <Button
           href="#Projects"
           variant="contained"
@@ -65,15 +73,27 @@ export default function Hero() {
           View my projects!
         </Button>
       </Box>
-      <img
-        src={heroImg}
-        style={{
-          maxWidth: isMobile ? "80vw" : "auto",
-          maxHeight: isMobile ? "30vh" : "80vh",
+      <Box
+        sx={{
+          maxWidth: { xs: "80vw", lg: "auto", md: "70vw" },
+          maxHeight: { xs: "30vh", lg: "80vh", md: "30vh" },
           height: "auto",
-          marginTop: isMobile ? 24 : 0,
+          marginTop: { xs: 5, md: 5 },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
-      />
+      >
+        <img
+          src={heroImg}
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+          }}
+          alt="Coding illustration"
+        />
+      </Box>
     </Box>
   );
 }
