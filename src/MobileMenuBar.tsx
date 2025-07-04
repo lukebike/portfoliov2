@@ -9,11 +9,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import Anchor from "./Anchor";
+import { useTheme } from "@mui/material";
 
 const drawerWidth = 240;
 
 export default function MobileMenuBar({ navTexts }: { navTexts: string[] }) {
+  const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
+  console.log(theme);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
@@ -39,7 +42,10 @@ export default function MobileMenuBar({ navTexts }: { navTexts: string[] }) {
   );
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar component="nav" sx={{ backgroundColor: "#121212" }}>
+      <AppBar
+        component="nav"
+        sx={{ backgroundColor: theme.palette.background.default }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"

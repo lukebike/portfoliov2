@@ -2,9 +2,10 @@ import Anchor from "./Anchor";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 // import logo from "/ls-high-resolution-logo.png";
-import { Toolbar, Typography } from "@mui/material";
+import { Toolbar, Typography, useTheme } from "@mui/material";
 
 export default function MenuBar({ navTexts }: { navTexts: string[] }) {
+  const theme = useTheme();
   return (
     // <Box className="navbar shadow-sm">
     //   <Box className="navbar-start">
@@ -32,7 +33,7 @@ export default function MenuBar({ navTexts }: { navTexts: string[] }) {
         component="nav"
         position="static"
         sx={{
-          backgroundColor: "transparent",
+          backgroundColor: theme.palette.background.default,
           border: "none",
           boxShadow: "none",
         }}

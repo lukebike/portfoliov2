@@ -4,10 +4,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [fade, setFade] = useState(false);
+  const theme = useTheme();
   const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
@@ -32,7 +34,10 @@ export default function Hero() {
       }}
     >
       <Box sx={{ textAlign: { xs: "center", sm: "left" }, m: 0, p: 0 }}>
-        <Typography variant={isMobile ? "h3" : "h1"} sx={{ color: "#00BCD4" }}>
+        <Typography
+          variant={isMobile ? "h3" : "h1"}
+          sx={{ color: theme.palette.primary.main }}
+        >
           Hello,
         </Typography>
         <Typography
@@ -60,12 +65,12 @@ export default function Hero() {
           variant="contained"
           sx={{
             marginTop: "10px",
-            backgroundColor: "#c1121f",
+            backgroundColor: theme.palette.error.main,
             transition:
               "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
             "&:hover": {
-              backgroundColor: "#780000",
-              color: "black",
+              backgroundColor: theme.palette.error.dark,
+              color: theme.palette.warning.contrastText,
             },
             width: { xs: "100%", sm: "auto" },
           }}

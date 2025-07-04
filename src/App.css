@@ -1,12 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-:root {
-  /* background-color: rgba(28, 28, 32, 255); */
-  background-color: #121212;
-  /* background-image: url(https://images.unsplash.com/photo-1515879218367-8466d910aaa4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8); */
-}
-
 /* :root::before {
   content: "";
   position: fixed;
@@ -20,16 +14,13 @@
   z-index: 0;
 } */
 
-body,
 #root {
   min-height: 100vh;
   min-width: 100vw;
   height: 100vh;
   width: 100vw;
   margin: 0;
-  padding: 0;
   padding: 1rem;
-  position: relative;
   position: relative;
   z-index: 1;
 }
