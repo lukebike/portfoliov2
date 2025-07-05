@@ -9,14 +9,23 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import Anchor from "./Anchor";
-import { useTheme } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 const drawerWidth = 240;
 
-export default function MobileMenuBar({ navTexts }: { navTexts: string[] }) {
+export default function MobileMenuBar({
+  navTexts,
+  mode,
+  setMode,
+}: {
+  navTexts: string[];
+  mode: "light" | "dark";
+  setMode: React.Dispatch<React.SetStateAction<"light" | "dark">>;
+}) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
-  console.log(theme);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
@@ -43,19 +52,26 @@ export default function MobileMenuBar({ navTexts }: { navTexts: string[] }) {
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar
+        enableColorOnDark
         component="nav"
         sx={{ backgroundColor: theme.palette.background.default }}
       >
-        <Toolbar>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton
-            color="inherit"
+            color="default"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{
+              mr: 2,
+              display: { sm: "none" },
+            }}
           >
             <MenuIcon />
           </IconButton>
+          <Button onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
+            {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -68,7 +84,7 @@ export default function MobileMenuBar({ navTexts }: { navTexts: string[] }) {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,
-            backgroundColor: "#121212",
+            backgroundColor: theme.palette.background.default,
             color: "white",
           },
         }}

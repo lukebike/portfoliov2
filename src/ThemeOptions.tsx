@@ -39,8 +39,8 @@ export const lightThemeOptions: ThemeOptions = {
       main: "#00BCD4",
     },
     background: {
-      default: "#FDF0D5",
-      paper: "#FDF0D5",
+      default: "#FFF",
+      paper: "#FFF",
     },
     info: {
       main: "#00BCD4",

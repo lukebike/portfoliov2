@@ -5,10 +5,11 @@ import type { CardTypes } from "./MediaCard";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material";
 
 export default function CardList() {
   const [mounted, setMounted] = useState(false);
-
+  const theme = useTheme();
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -28,7 +29,7 @@ export default function CardList() {
       <Typography
         variant="h3"
         sx={{
-          color: "#00BCD4",
+          color: theme.palette.primary.main,
           fontWeight: "bold",
           mt: { xs: 10 },
           mb: { lg: 20, xs: 10 },

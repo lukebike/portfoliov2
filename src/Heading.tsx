@@ -1,9 +1,11 @@
+import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function Heading({ headingText }: { headingText: string }) {
   const isMobile = useMediaQuery("(max-width:600px)");
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -18,7 +20,8 @@ export default function Heading({ headingText }: { headingText: string }) {
           fontWeight: "400",
           textAlign: { xs: "center", lg: "left", md: "center" },
           whiteSpace: "nowrap",
-          borderBottom: "solid #00BCD4 2px",
+          borderBottom: "solid 2px",
+          borderBottomColor: theme.palette.primary.main,
           height: "70px",
           flexShrink: 0,
           pb: 0.5,

@@ -1,3 +1,4 @@
+import { useTheme } from "@mui/material";
 import Button from "@mui/material/Button";
 
 export default function Anchor({
@@ -7,6 +8,7 @@ export default function Anchor({
   anchorText: string;
   anchorLink: string;
 }) {
+  const theme = useTheme();
   // const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   //   if (anchorLink.startsWith("#")) {
   //     e.preventDefault();
@@ -26,7 +28,7 @@ export default function Anchor({
     <Button
       href={anchorLink}
       sx={{
-        color: "white",
+        color: theme.palette.warning.contrastText,
         fontWeight: "normal",
         backgroundColor: "transparent",
         border: "none",
@@ -44,7 +46,7 @@ export default function Anchor({
           bottom: 0,
           width: 0,
           height: "2px",
-          background: "#c1121f",
+          background: theme.palette.secondary.main,
           transition: "width 0.2s linear",
         },
         "&:hover::after": {

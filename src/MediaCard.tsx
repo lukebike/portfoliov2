@@ -4,7 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 import cocktailImg from "./assets/cocktailproject.png";
-import { Button, Box, useMediaQuery } from "@mui/material";
+import { Button, Box, useTheme } from "@mui/material";
 
 type CardTypes = {
   img?: string;
@@ -21,6 +21,7 @@ function MediaCard({
   anchorText,
   anchorLink,
 }: CardTypes) {
+  const theme = useTheme();
   return (
     <Card
       sx={{
@@ -93,12 +94,12 @@ function MediaCard({
               px: 2,
               py: 1,
               letterSpacing: 1,
-              backgroundColor: "#c1121f",
+              backgroundColor: theme.palette.secondary.main,
               transition:
                 "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
               "&:hover": {
-                backgroundColor: "#780000",
-                color: "black",
+                backgroundColor: theme.palette.warning.main,
+                color: theme.palette.warning.contrastText,
               },
               width: { xs: "70%", sm: "auto" },
             }}

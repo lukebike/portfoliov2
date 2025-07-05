@@ -1,4 +1,11 @@
-import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import IconGrid from "./IconGrid";
 import { aboutItems } from "./info";
 import Heading from "./Heading";
@@ -9,7 +16,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const isMobile = useMediaQuery("(max-width:600px)");
-
+  const theme = useTheme();
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -18,6 +25,7 @@ export default function Home() {
       sx={{
         opacity: mounted ? 1 : 0,
         transition: "opacity 0.8s ease-in-out",
+        minHeight: { xs: "80vh" },
         height: { lg: "80vh" },
         display: { lg: "flex" },
         justifyContent: "center",
@@ -34,7 +42,7 @@ export default function Home() {
               <Box display={"flex"} key={idx} sx={{ flexDirection: "row" }}>
                 <CodeIcon
                   sx={{
-                    color: "#c1121f",
+                    color: theme.palette.secondary.main,
                     marginRight: 2,
                     marginBottom: 1,
                     marginTop: { xs: 2, lg: 1, md: "10px" },
@@ -95,7 +103,10 @@ export default function Home() {
           >
             <Button
               variant="outlined"
-              sx={{ color: "#c1121f", borderColor: "#c1121f" }}
+              sx={{
+                color: theme.palette.secondary.main,
+                borderColor: theme.palette.secondary.main,
+              }}
               endIcon={<Description />}
               href="/CV.pdf"
               download

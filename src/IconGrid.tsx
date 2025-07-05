@@ -1,34 +1,36 @@
 import Box from "@mui/material/Box";
 import { iconComponents } from "./images";
+import { useTheme } from "@mui/material";
 
-const IconGrid = () => (
-  <>
-    {iconComponents.map((IconComponent, idx) => (
-      <Box
-        key={idx}
-        sx={{
-          width: { xs: 28, sm: 48 },
-          height: { xs: 28, sm: 48 },
-          marginRight: "10px",
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: "10px",
-          transition: "color 0.3s",
-          "&:hover": {
-            color: "#00BCD4",
-          },
-        }}
-      >
-        <IconComponent
-          width="100%"
-          height="100%"
-          style={{ display: "block" }}
-          aria-label={`icon-${idx}`}
-        />
-      </Box>
-    ))}
-  </>
-);
-
-export default IconGrid;
+export default function IconGrid() {
+  const theme = useTheme();
+  return (
+    <>
+      {iconComponents.map((IconComponent, idx) => (
+        <Box
+          key={idx}
+          sx={{
+            width: { xs: 28, sm: 48 },
+            height: { xs: 28, sm: 48 },
+            marginRight: "10px",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "10px",
+            transition: "color 0.3s",
+            "&:hover": {
+              color: theme.palette.secondary.main,
+            },
+          }}
+        >
+          <IconComponent
+            width="100%"
+            height="100%"
+            style={{ display: "block" }}
+            aria-label={`icon-${idx}`}
+          />
+        </Box>
+      ))}
+    </>
+  );
+}

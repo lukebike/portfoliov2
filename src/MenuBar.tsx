@@ -1,11 +1,19 @@
 import Anchor from "./Anchor";
-import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 // import logo from "/ls-high-resolution-logo.png";
-import { Toolbar, Typography, useTheme } from "@mui/material";
+import { Box, Button, Toolbar, Typography } from "@mui/material";
 
-export default function MenuBar({ navTexts }: { navTexts: string[] }) {
-  const theme = useTheme();
+export default function MenuBar({
+  navTexts,
+  mode,
+  setMode,
+}: {
+  navTexts: string[];
+  mode: "light" | "dark";
+  setMode: React.Dispatch<React.SetStateAction<"light" | "dark">>;
+}) {
   return (
     // <Box className="navbar shadow-sm">
     //   <Box className="navbar-start">
@@ -31,9 +39,10 @@ export default function MenuBar({ navTexts }: { navTexts: string[] }) {
     <Box sx={{ display: "flex" }}>
       <AppBar
         component="nav"
+        enableColorOnDark
+        color="transparent"
         position="static"
         sx={{
-          backgroundColor: theme.palette.background.default,
           border: "none",
           boxShadow: "none",
         }}
@@ -57,11 +66,14 @@ export default function MenuBar({ navTexts }: { navTexts: string[] }) {
             ))}
           </Box>
           <Box sx={{ marginLeft: "auto" }}>
-            <Anchor
+            <Button onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
+              {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+            </Button>
+            {/* <Anchor
               key="btn-4"
               anchorText="Contact Me!"
               anchorLink="#Contact"
-            />
+            /> */}
           </Box>
         </Toolbar>
       </AppBar>

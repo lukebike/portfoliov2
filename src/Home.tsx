@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import heroImg from "/undraw_coding_joxb.svg";
+import heroImg2 from "/undraw_coding_joxb2.svg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -90,7 +91,9 @@ export default function Hero() {
         }}
       >
         <img
-          src={heroImg}
+          src={
+            theme.palette.background.default === "#121212" ? heroImg : heroImg2
+          }
           style={{
             width: "100%",
             height: "auto",
