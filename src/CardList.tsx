@@ -21,9 +21,10 @@ export default function CardList() {
         opacity: mounted ? 1 : 0,
         minHeight: { lg: "80vh", md: "80vh" },
         display: { lg: "flex" },
+        width: "100%",
         flexDirection: "column",
-        justifyContent: { lg: "center" },
-        alignItems: { lg: "center" },
+        justifyContent: { xl: "space-around" },
+        alignItems: "center",
       }}
     >
       <Typography
@@ -38,9 +39,19 @@ export default function CardList() {
       >
         My Projects
       </Typography>
-      <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+      <Grid
+        container
+        spacing={4}
+        justifyContent="space-around"
+        sx={{
+          marginLeft: {},
+          flexDirection: "row",
+          width: { xl: "100%" },
+          alignItems: "center",
+        }}
+      >
         {cards.map((card: CardTypes, idx: number) => (
-          <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 3 }}>
+          <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 3, xl: 3 }}>
             <MediaCard {...card} />
           </Grid>
         ))}

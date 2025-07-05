@@ -4,7 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 import cocktailImg from "./assets/cocktailproject.png";
-import { Button, Box, useTheme } from "@mui/material";
+import { Button, Box, useTheme, useMediaQuery } from "@mui/material";
 
 type CardTypes = {
   img?: string;
@@ -22,11 +22,12 @@ function MediaCard({
   anchorLink,
 }: CardTypes) {
   const theme = useTheme();
+  // const isLargeWindow = useMediaQuery()
   return (
     <Card
       sx={{
         position: "relative",
-        width: { xs: 350, md: 384, lg: 500 },
+        width: "100%",
 
         backgroundColor: "#1e1e1e",
         minHeight: "400",
