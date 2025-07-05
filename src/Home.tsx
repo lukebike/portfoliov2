@@ -7,9 +7,9 @@ import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
 
-export default function Hero() {
+export default function Hero({ mode }: { mode: "light" | "dark" }) {
   const [mounted, setMounted] = useState(false);
-  const [fade, setFade] = useState(false);
+  const [fade] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery("(max-width:600px)");
 
@@ -91,9 +91,7 @@ export default function Hero() {
         }}
       >
         <img
-          src={
-            theme.palette.background.default === "#121212" ? heroImg : heroImg2
-          }
+          src={mode === "dark" ? heroImg : heroImg2}
           style={{
             width: "100%",
             height: "auto",

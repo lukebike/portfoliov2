@@ -39,6 +39,7 @@ function App() {
   //TODO: Add text to locales
   //TODO: Make Swedish version
   //TODO: Look into smoother color transition
+  //TODO: Add label to icons
 
   useEffect(() => {
     const onHashChange = () => setHash(window.location.hash);
@@ -61,7 +62,7 @@ function App() {
           setMode={setMode}
         />
       )}
-      {(hash === "#Home" || hash === "") && <Home />}
+      {(hash === "#Home" || hash === "") && <Home mode={mode} />}
       {hash === "#About%20Me" && <About />}
       {hash === "#Projects" && <CardList />}
       {hash === "#Contact" && <ContactForm />}
