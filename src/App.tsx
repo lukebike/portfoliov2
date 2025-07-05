@@ -29,10 +29,16 @@ function App() {
     [mode]
   );
 
-  //TODO: Mobile Navbar (done, need styling)
+  //TODO: Mobile Navbar (done, need styling) DONE
   //TODO: Contact info mobile
-  //TODO: Home Page Mobile
-  //TODO: Look into overflow
+  //TODO: Home Page Mobile DONE
+  //TODO: Look into overflow DONE
+  //TODO: Implement React Router
+  //TODO: Rework Contact Page
+  //TODO: Implement Emailjs or similar on contact page
+  //TODO: Add text to locales
+  //TODO: Make Swedish version
+  //TODO: Look into smoother color transition
 
   useEffect(() => {
     const onHashChange = () => setHash(window.location.hash);

@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 // import logo from "/ls-high-resolution-logo.png";
-import { Box, Button, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Toolbar, Typography, useTheme } from "@mui/material";
 
 export default function MenuBar({
   navTexts,
@@ -14,6 +14,7 @@ export default function MenuBar({
   mode: "light" | "dark";
   setMode: React.Dispatch<React.SetStateAction<"light" | "dark">>;
 }) {
+  const theme = useTheme();
   return (
     // <Box className="navbar shadow-sm">
     //   <Box className="navbar-start">
@@ -66,7 +67,18 @@ export default function MenuBar({
             ))}
           </Box>
           <Box sx={{ marginLeft: "auto" }}>
-            <Button onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
+            <Button
+              sx={{
+                color: theme.palette.warning.contrastText,
+                transition:
+                  "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  color: theme.palette.secondary.main,
+                },
+              }}
+              onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+            >
               {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
             </Button>
             {/* <Anchor

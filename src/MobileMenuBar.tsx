@@ -54,9 +54,17 @@ export default function MobileMenuBar({
       <AppBar
         enableColorOnDark
         component="nav"
-        sx={{ backgroundColor: theme.palette.background.default }}
+        sx={{
+          backgroundColor: theme.palette.background.default,
+        }}
       >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingRight: "0",
+          }}
+        >
           <IconButton
             color="default"
             aria-label="open drawer"
@@ -86,6 +94,7 @@ export default function MobileMenuBar({
             width: drawerWidth,
             backgroundColor: theme.palette.background.default,
             color: "white",
+            marginRight: 0,
           },
         }}
       >
