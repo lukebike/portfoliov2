@@ -4,7 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 import cocktailImg from "./assets/cocktailproject.png";
-import { Button, Box, useTheme, useMediaQuery } from "@mui/material";
+import { Button, Box, useTheme } from "@mui/material";
 
 type CardTypes = {
   img?: string;
