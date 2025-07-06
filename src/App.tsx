@@ -18,6 +18,7 @@ import {
   Container,
   createTheme,
   CssBaseline,
+  ScopedCssBaseline,
   ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
@@ -48,9 +49,9 @@ function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
   return (
-    <Container maxWidth="lg">
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth="lg">
         {isMobile ? (
           <MobileMenuBar
             navTexts={["Home", "About Me", "Projects", "Contact"]}
@@ -68,8 +69,8 @@ function App() {
         {hash === "#About%20Me" && <About />}
         {hash === "#Projects" && <CardList />}
         {hash === "#Contact" && <ContactForm />}
-      </ThemeProvider>
-    </Container>
+      </Container>
+    </ThemeProvider>
   );
 }
 

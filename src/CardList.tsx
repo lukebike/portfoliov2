@@ -41,7 +41,7 @@ export default function CardList() {
       </Typography>
       <Grid
         container
-        spacing={{ lg: 5 }}
+        spacing={{ lg: 5, xs: 4 }}
         justifyContent="space-around"
         sx={{
           flexDirection: "row",
