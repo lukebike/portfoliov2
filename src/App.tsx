@@ -18,7 +18,6 @@ import {
   Container,
   createTheme,
   CssBaseline,
-  ScopedCssBaseline,
   ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
