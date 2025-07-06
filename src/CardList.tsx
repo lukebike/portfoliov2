@@ -51,7 +51,7 @@ export default function CardList() {
         }}
       >
         {cards.map((card: CardTypes, idx: number) => (
-          <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 3, xl: 3 }}>
+          <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 5, xl: 4 }}>
             <MediaCard {...card} />
           </Grid>
         ))}
