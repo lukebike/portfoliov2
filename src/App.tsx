@@ -15,6 +15,7 @@ import { lightThemeOptions, darkThemeOptions } from "./ThemeOptions";
 import { useEffect, useState, useMemo } from "react";
 import CardList from "./CardList.tsx";
 import {
+  Container,
   createTheme,
   CssBaseline,
   ThemeProvider,
@@ -47,26 +48,28 @@ function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {isMobile ? (
-        <MobileMenuBar
-          navTexts={["Home", "About Me", "Projects", "Contact"]}
-          mode={mode}
-          setMode={setMode}
-        />
-      ) : (
-        <MenuBar
-          navTexts={["Home", "About Me", "Projects", "Contact"]}
-          mode={mode}
-          setMode={setMode}
-        />
-      )}
-      {(hash === "#Home" || hash === "") && <Home mode={mode} />}
-      {hash === "#About%20Me" && <About />}
-      {hash === "#Projects" && <CardList />}
-      {hash === "#Contact" && <ContactForm />}
-    </ThemeProvider>
+    <Container maxWidth="lg">
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {isMobile ? (
+          <MobileMenuBar
+            navTexts={["Home", "About Me", "Projects", "Contact"]}
+            mode={mode}
+            setMode={setMode}
+          />
+        ) : (
+          <MenuBar
+            navTexts={["Home", "About Me", "Projects", "Contact"]}
+            mode={mode}
+            setMode={setMode}
+          />
+        )}
+        {(hash === "#Home" || hash === "") && <Home mode={mode} />}
+        {hash === "#About%20Me" && <About />}
+        {hash === "#Projects" && <CardList />}
+        {hash === "#Contact" && <ContactForm />}
+      </ThemeProvider>
+    </Container>
   );
 }
 

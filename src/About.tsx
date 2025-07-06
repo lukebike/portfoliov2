@@ -26,7 +26,7 @@ export default function Home() {
         opacity: mounted ? 1 : 0,
         transition: "opacity 0.8s ease-in-out",
         minHeight: { xs: "80vh" },
-        height: { lg: "80vh" },
+        height: { lg: "80vh", xs: "100vh" },
         display: { lg: "flex" },
         justifyContent: "center",
         alignItems: "center",

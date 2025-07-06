@@ -93,7 +93,7 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
         <img
           src={mode === "dark" ? heroImg : heroImg2}
           style={{
-            width: "100%",
+            width: isMobile ? "100%" : "80%",
             height: "auto",
             display: "block",
           }}

@@ -41,17 +41,16 @@ export default function CardList() {
       </Typography>
       <Grid
         container
-        spacing={4}
+        spacing={{ lg: 5 }}
         justifyContent="space-around"
         sx={{
-          marginLeft: {},
           flexDirection: "row",
           width: { xl: "100%" },
           alignItems: "center",
         }}
       >
         {cards.map((card: CardTypes, idx: number) => (
-          <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 5, xl: 4 }}>
+          <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 6, xl: 6 }}>
             <MediaCard {...card} />
           </Grid>
         ))}

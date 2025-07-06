@@ -27,7 +27,7 @@ function MediaCard({
     <Card
       sx={{
         position: "relative",
-        width: { xl: "100%", lg: 600 },
+        width: { xl: "100%", lg: 500, md: 400 },
 
         backgroundColor: "#1e1e1e",
         minHeight: "400",
@@ -59,7 +59,6 @@ function MediaCard({
           justifyContent: "center",
           alignItems: "center",
           color: "white",
-          p: 4,
           textAlign: "center",
           height: "100%",
         }}
