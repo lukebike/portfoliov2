@@ -6,20 +6,14 @@ import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
 import { useNavigate } from "react-router";
-import { motion } from "framer-motion";
+import MotionWrapper from "./MotionWrapper";
 export default function Hero({ mode }: { mode: "light" | "dark" }) {
   const theme = useTheme();
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(min-width:600px)");
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      style={{ height: isMobile ? "90%" : "80%" }}
-    >
+    <MotionWrapper sx={{ height: isMobile ? "90%" : "100%", display: "flex" }}>
       <Box
         sx={{
           display: "flex",
@@ -106,6 +100,6 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           />
         </Box>
       </Box>
-    </motion.div>
+    </MotionWrapper>
   );
 }

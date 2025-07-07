@@ -71,7 +71,7 @@ function App() {
             <Route path="projects" element={<CardList />} />
             <Route path="contact" element={<ContactFormDuo />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </Container>
       </ThemeProvider>
     </BrowserRouter>

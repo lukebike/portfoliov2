@@ -11,20 +11,14 @@ import { aboutItems } from "./info";
 import Heading from "./Heading";
 import { Description } from "@mui/icons-material";
 import CodeIcon from "@mui/icons-material/Code";
-import { motion } from "framer-motion";
+import MotionWrapper from "./MotionWrapper";
 
 export default function Home() {
   const isMobile = useMediaQuery("(max-width:600px)");
   const theme = useTheme();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      style={{ height: "80%" }}
-    >
+    <MotionWrapper sx={{ height: "100%", display: "flex" }}>
       <Box
         sx={{
           display: { lg: "flex" },
@@ -33,7 +27,7 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <Grid container spacing={{ xs: 5, lg: 10, md: 20 }} sx={{ mt: 15 }}>
+        <Grid container spacing={{ xs: 5, lg: 10, md: 20 }} sx={{}}>
           <Grid size={{ xs: 12, md: 4 }}>
             <Heading headingText="About me" />
           </Grid>
@@ -132,6 +126,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </Box>
-    </motion.div>
+    </MotionWrapper>
   );
 }
