@@ -24,7 +24,7 @@ export default function ContactFormDuo() {
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   const form = useRef<HTMLFormElement>(null);
   const theme = useTheme();
-  const isMobile = useMediaQuery("(min-width: 200px)");
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   const formik = useFormik({
     initialValues: {
@@ -40,7 +40,7 @@ export default function ContactFormDuo() {
       message: Yup.string().required("Message is required"),
     }),
     onSubmit: async (
-      values: ContactFormValues,
+      _values: ContactFormValues,
       { setSubmitting, resetForm }: FormikHelpers<ContactFormValues>
     ) => {
       try {
@@ -70,16 +70,18 @@ export default function ContactFormDuo() {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
       style={{
-        height: isMobile ? "100dvh" : "",
+        height: isMobile ? "100dvh" : "95%",
         paddingTop: isMobile ? 30 : 5,
       }}
     >
       <Box
         sx={{
           height: "100%",
-          display: "grid",
-          placeItems: "center",
+          display: "flex",
+          flexDirection: "column",
           alignContent: "center",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         {isMobile ? (

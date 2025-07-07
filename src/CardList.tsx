@@ -9,17 +9,25 @@ import { motion } from "framer-motion";
 
 export default function CardList() {
   const theme = useTheme();
-  const isMobile = useMediaQuery("(min-width: 300px)");
+  const isMobile = useMediaQuery("(max-width: 600px)");
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
+      style={{
+        display: "flex",
+        minHeight: isMobile ? "100dvh" : "",
+        height: isMobile ? "100%" : "95%",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+      }}
     >
       <Box
         sx={{
-          height: "100%",
+          height: isMobile ? "100dvh" : "80%",
           width: "100%",
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
