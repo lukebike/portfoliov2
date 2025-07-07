@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Box } from "@mui/material";
-import type React from "react";
 
-const MotionWrapper: React.FC<MotionWrapperProps> = ({ children, sx }) => {
+const MotionWrapper = ({ children, sx }) => {
   return (
     <Box sx={sx}>
       <motion.div

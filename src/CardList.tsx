@@ -6,19 +6,26 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material";
 import MotionWrapper from "./MotionWrapper";
+import { motion } from "framer-motion";
 
 export default function CardList() {
   const theme = useTheme();
 
   return (
-    <MotionWrapper sx={{ height: { xs: "30%", md: "100%" } }}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+    >
       <Box
         sx={{
-          height: "100%",
+          height: "80%",
           width: "100%",
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
           alignItems: "center",
+          marginBottom: 15,
         }}
       >
         <Typography
@@ -49,6 +56,6 @@ export default function CardList() {
           ))}
         </Grid>
       </Box>
-    </MotionWrapper>
+    </motion.div>
   );
 }

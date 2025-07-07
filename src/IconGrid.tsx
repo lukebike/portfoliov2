@@ -10,8 +10,8 @@ export default function IconGrid() {
         <Box
           key={idx}
           sx={{
-            width: { xs: 28, sm: "18%" },
-            height: { xs: 28, sm: 48 },
+            width: { xs: "20%", sm: "18%" },
+            height: { xs: "60px", sm: 48 },
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",

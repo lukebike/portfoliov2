@@ -7,13 +7,26 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
 import { useNavigate } from "react-router";
 import MotionWrapper from "./MotionWrapper";
+import { motion } from "framer-motion";
+import Footer from "./Footer";
 export default function Hero({ mode }: { mode: "light" | "dark" }) {
   const theme = useTheme();
   const navigate = useNavigate();
-  const isMobile = useMediaQuery("(min-width:600px)");
+  const isMobile = useMediaQuery("(max-width:300px)");
 
   return (
-    <MotionWrapper sx={{ height: isMobile ? "90%" : "100%", display: "flex" }}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: isMobile ? "100%" : "90%",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -21,7 +34,9 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           justifyContent: "center",
           placeItems: "center",
           alignItems: "center",
-          height: "100%",
+
+          // marginTop: isMobile ? 20 : 35,
+          // marginBottom: isMobile ? 5 : 35,
           boxSizing: "border-box",
         }}
       >
@@ -92,7 +107,7 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           <img
             src={mode === "dark" ? heroImg : heroImg2}
             style={{
-              width: isMobile ? "100%" : "80%",
+              width: isMobile ? "100%" : "90%",
               height: "auto",
               display: "block",
             }}
@@ -100,6 +115,6 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           />
         </Box>
       </Box>
-    </MotionWrapper>
+    </motion.div>
   );
 }
