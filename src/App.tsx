@@ -12,7 +12,7 @@ import About from "./About.tsx";
 import MobileMenuBar from "./MobileMenuBar.tsx";
 import { lightThemeOptions, darkThemeOptions } from "./ThemeOptions";
 
-import { useEffect, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import CardList from "./CardList.tsx";
 
 import {
@@ -26,7 +26,6 @@ import {
 import { BrowserRouter, Routes, Route } from "react-router";
 function App() {
   const isMobile = useMediaQuery("(max-width: 600px)");
-  const [hash, setHash] = useState(window.location.hash);
   const [mode, setMode] = useState<"light" | "dark">("dark");
   const theme = useMemo(
     () => createTheme(mode === "dark" ? darkThemeOptions : lightThemeOptions),
@@ -45,11 +44,6 @@ function App() {
   //TODO: Look into smoother color transition
   //TODO: Add label to icons
 
-  useEffect(() => {
-    const onHashChange = () => setHash(window.location.hash);
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
@@ -75,10 +69,6 @@ function App() {
             <Route path="projects" element={<CardList />} />
             <Route path="contact" element={<ContactForm />} />
           </Routes>
-          {/* {(hash === "#Home" || hash === "") && <Home mode={mode} />}
-          {hash === "#About%20Me" && <About />}
-          {hash === "#Projects" && <CardList />}
-          {hash === "#Contact" && <ContactForm />} */}
         </Container>
       </ThemeProvider>
     </BrowserRouter>

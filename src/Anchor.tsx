@@ -10,6 +10,7 @@ export default function Anchor({
 }) {
   const navigate = useNavigate();
   const theme = useTheme();
+  const href = anchorLink.toLowerCase();
   // const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   //   if (anchorLink.startsWith("#")) {
   //     e.preventDefault();
@@ -60,7 +61,7 @@ export default function Anchor({
           backgroundColor: "transparent",
         },
       }}
-      onClick={() => navigate(`/${anchorLink}`, { viewTransition: true })}
+      onClick={() => navigate(`/${href}`, { viewTransition: true })}
     >
       {anchorText}
     </Button>

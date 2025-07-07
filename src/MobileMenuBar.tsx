@@ -42,7 +42,7 @@ export default function MobileMenuBar({
             <Anchor
               key={`btn-${idx + 1}`}
               anchorText={item}
-              anchorLink={`#${item}`}
+              anchorLink={`${item}`}
             />
           </ListItem>
         ))}

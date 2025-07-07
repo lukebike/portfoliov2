@@ -55,7 +55,7 @@ export default function MenuBar({
             </Avatar>
           </IconButton> */}
           <Typography variant="h6" component="div">
-            <Anchor key="btn-0" anchorText="Luke Salem" anchorLink="/home" />
+            <Anchor key="btn-0" anchorText="Luke Salem" anchorLink="home" />
           </Typography>
           <Box sx={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
             {navTexts.map((n, idx) => (
