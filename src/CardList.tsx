@@ -19,7 +19,7 @@ export default function CardList() {
     >
       <Box
         sx={{
-          display: { lg: "flex" },
+          display: { lg: "xl" },
           width: "100%",
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
@@ -42,7 +42,7 @@ export default function CardList() {
           spacing={{ lg: 5, xs: 4 }}
           justifyContent="space-around"
           sx={{
-            flexDirection: "row",
+            flexDirection: { xs: "row", xl: "column" },
             width: { xl: "100%" },
             alignItems: "center",
           }}

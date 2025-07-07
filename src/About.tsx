@@ -31,7 +31,7 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <Grid container spacing={{ xs: 5, lg: 10, md: 20 }} sx={{ mt: 10 }}>
+        <Grid container spacing={{ xs: 5, lg: 10, md: 20 }} sx={{ mt: 15 }}>
           <Grid size={{ xs: 12, md: 4 }}>
             <Heading headingText="About me" />
           </Grid>

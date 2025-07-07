@@ -9,27 +9,8 @@ body {
   margin: 0;
   background-color: transparent;
 }
-/* :root::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: inherit;
-  opacity: 0.2;
-  pointer-events: none;
-  z-index: 0;
-} */
 
 #root {
   height: 100%;
   width: 100%;
-}
-
-@media (min-width: 1000px) {
-  body,
-  #root {
-    overflow: hidden;
-  }
 }

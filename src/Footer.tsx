@@ -5,6 +5,7 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
+        position: "static",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
