@@ -59,11 +59,7 @@ export default function MenuBar({
           </Typography>
           <Box sx={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
             {navTexts.map((n, idx) => (
-              <Anchor
-                key={`btn-${idx + 1}`}
-                anchorText={n}
-                anchorLink={`${n}`}
-              />
+              <Anchor key={`btn-${idx + 1}`} anchorText={n} anchorLink={n} />
             ))}
           </Box>
           <Box sx={{ marginLeft: "auto" }}>
