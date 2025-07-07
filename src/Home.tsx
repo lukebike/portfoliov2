@@ -22,7 +22,7 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: isMobile ? "100%" : "90%",
+        height: isMobile ? "100%" : "95%",
       }}
     >
       <Box

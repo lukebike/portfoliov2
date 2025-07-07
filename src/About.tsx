@@ -14,7 +14,7 @@ import CodeIcon from "@mui/icons-material/Code";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const isMobile = useMediaQuery("(min-width: 200px)");
+  const isMobile = useMediaQuery("(max-width: 600px)");
   const theme = useTheme();
 
   return (
@@ -24,10 +24,9 @@ export default function Home() {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
       style={{
-        flex: 1,
         display: "flex",
+        height: isMobile ? "100dvh" : "95%",
         alignItems: "center",
-        paddingTop: isMobile ? 100 : 50,
         justifyContent: "center",
         width: "100%",
       }}
@@ -36,7 +35,6 @@ export default function Home() {
         sx={{
           height: "100%",
           display: { lg: "flex" },
-          marginBottom: isMobile ? 10 : 20,
           justifyContent: "center",
           alignItems: "center",
         }}
