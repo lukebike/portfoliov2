@@ -22,11 +22,6 @@ export default function ContactFormDuo() {
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-  console.log("EmailJS Config:", {
-    SERVICE_ID: SERVICE_ID ? "Set" : "Missing",
-    TEMPLATE_ID: TEMPLATE_ID ? "Set" : "Missing",
-    PUBLIC_KEY: PUBLIC_KEY ? "Set" : "Missing",
-  });
   const form = useRef<HTMLFormElement>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery("(min-width: 200px)");
