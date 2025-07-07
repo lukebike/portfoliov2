@@ -43,9 +43,11 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           <Typography
             sx={{
               fontSize: {
-                xs: "1rem", // mobile
-                sm: "1.25rem", // tablets (≥600px)
-                md: "1.5rem", // desktop (≥900px)
+                xs: "20px",
+                sm: "20px",
+                md: "25px",
+                lg: "20px",
+                xl: "24px",
               },
             }}
             textAlign={{ xs: "center", sm: "left" }}
@@ -53,7 +55,13 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
             My name is Luke Salem
           </Typography>
           <Typography
-            sx={{ textAlign: { lg: "left", xs: "center", md: "center" } }}
+            sx={{
+              textAlign: {
+                lg: "left",
+                xs: "left",
+                md: "left",
+              },
+            }}
           >
             I'm a developer in{" "}
             <code>
