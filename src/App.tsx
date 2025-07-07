@@ -14,6 +14,7 @@ import { lightThemeOptions, darkThemeOptions } from "./ThemeOptions";
 
 import { useEffect, useState, useMemo } from "react";
 import CardList from "./CardList.tsx";
+
 import {
   Container,
   createTheme,
@@ -21,6 +22,8 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
+
+import { BrowserRouter, Routes, Route } from "react-router";
 function App() {
   const isMobile = useMediaQuery("(max-width: 600px)");
   const [hash, setHash] = useState(window.location.hash);
@@ -48,28 +51,37 @@ function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        {isMobile ? (
-          <MobileMenuBar
-            navTexts={["Home", "About Me", "Projects", "Contact"]}
-            mode={mode}
-            setMode={setMode}
-          />
-        ) : (
-          <MenuBar
-            navTexts={["Home", "About Me", "Projects", "Contact"]}
-            mode={mode}
-            setMode={setMode}
-          />
-        )}
-        {(hash === "#Home" || hash === "") && <Home mode={mode} />}
-        {hash === "#About%20Me" && <About />}
-        {hash === "#Projects" && <CardList />}
-        {hash === "#Contact" && <ContactForm />}
-      </Container>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          {isMobile ? (
+            <MobileMenuBar
+              navTexts={["Home", "About", "Projects", "Contact"]}
+              mode={mode}
+              setMode={setMode}
+            />
+          ) : (
+            <MenuBar
+              navTexts={["Home", "About", "Projects", "Contact"]}
+              mode={mode}
+              setMode={setMode}
+            />
+          )}
+          <Routes>
+            <Route path="/" element={<Home mode={mode} />} />
+            <Route path="home" element={<Home mode={mode} />} />
+            <Route path="about" element={<About />} />
+            <Route path="projects" element={<CardList />} />
+            <Route path="contact" element={<ContactForm />} />
+          </Routes>
+          {/* {(hash === "#Home" || hash === "") && <Home mode={mode} />}
+          {hash === "#About%20Me" && <About />}
+          {hash === "#Projects" && <CardList />}
+          {hash === "#Contact" && <ContactForm />} */}
+        </Container>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

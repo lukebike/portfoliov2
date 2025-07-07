@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import Button from "@mui/material/Button";
-
+import { useNavigate } from "react-router";
 export default function Anchor({
   anchorText,
   anchorLink = "",
@@ -8,6 +8,7 @@ export default function Anchor({
   anchorText: string;
   anchorLink: string;
 }) {
+  const navigate = useNavigate();
   const theme = useTheme();
   // const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
   //   if (anchorLink.startsWith("#")) {
@@ -26,7 +27,6 @@ export default function Anchor({
 
   return (
     <Button
-      href={anchorLink}
       sx={{
         color: theme.palette.warning.contrastText,
         fontWeight: "normal",
@@ -60,7 +60,7 @@ export default function Anchor({
           backgroundColor: "transparent",
         },
       }}
-      // onClick={handleClick}
+      onClick={() => navigate(`/${anchorLink}`, { viewTransition: true })}
     >
       {anchorText}
     </Button>

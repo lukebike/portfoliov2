@@ -39,7 +39,7 @@ const cards: CardListTypes[] = [
     cardTitle: "Portfolio",
     cardText: "The project you're currently viewing :)",
     anchorText: "Visit now!",
-    anchorLink: "#Home",
+    anchorLink: "/home",
   },
 ];
 

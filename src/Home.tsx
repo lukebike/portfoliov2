@@ -6,11 +6,12 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
-
+import { useNavigate } from "react-router";
 export default function Hero({ mode }: { mode: "light" | "dark" }) {
   const [mounted, setMounted] = useState(false);
   const [fade] = useState(false);
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
@@ -62,7 +63,6 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           </code>
         </Typography>
         <Button
-          href="#Projects"
           variant="contained"
           sx={{
             marginTop: "10px",
@@ -75,6 +75,7 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
             },
             width: { xs: "100%", sm: "auto" },
           }}
+          onClick={() => navigate("/projects", { viewTransition: true })}
         >
           View my projects!
         </Button>
