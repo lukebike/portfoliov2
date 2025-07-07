@@ -24,7 +24,6 @@ export default function CardList() {
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
           alignItems: "center",
-          marginBottom: 2,
         }}
       >
         <Typography

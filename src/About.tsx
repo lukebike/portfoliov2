@@ -26,7 +26,6 @@ export default function Home() {
     >
       <Box
         sx={{
-          height: "80vh",
           display: { lg: "flex" },
           justifyContent: "center",
           alignItems: "center",

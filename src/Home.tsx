@@ -25,11 +25,7 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           flexDirection: { lg: "row", md: "column", xs: "column" },
           justifyContent: "center",
           alignItems: "center",
-          height: "80vh",
-          // minHeight: isMobile ? "100vh" : "50vh",
-          gap: { xs: 2, sm: 4 },
-          px: { xs: 2, sm: 0 },
-          py: { xs: 4, sm: 0 },
+          height: isMobile ? "90vh" : "80vh",
           boxSizing: "border-box",
         }}
       >
