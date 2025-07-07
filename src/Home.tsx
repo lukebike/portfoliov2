@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export default function Hero({ mode }: { mode: "light" | "dark" }) {
   const theme = useTheme();
   const navigate = useNavigate();
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(min-width:600px)");
 
   return (
     <motion.div
@@ -18,11 +18,11 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
-      style={{ height: "80%" }}
+      style={{ height: isMobile ? "90%" : "80%" }}
     >
       <Box
         sx={{
-          display: { xs: "flex" },
+          display: "flex",
           flexDirection: { lg: "row", md: "column", xs: "column" },
           justifyContent: "center",
           placeItems: "center",
