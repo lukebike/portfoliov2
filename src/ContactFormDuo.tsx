@@ -38,7 +38,10 @@ export default function ContactFormDuo() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
-      style={{ height: isMobile ? "100dvh" : "" }}
+      style={{
+        height: isMobile ? "100dvh" : "",
+        paddingTop: isMobile ? 30 : 5,
+      }}
     >
       <Box
         sx={{
@@ -49,7 +52,7 @@ export default function ContactFormDuo() {
         }}
       >
         {isMobile ? (
-          <Typography variant="h3" sx={{ mb: 5 }}>
+          <Typography variant="h3" sx={{ mb: 5, fontWeight: "400" }}>
             Contact Me!
           </Typography>
         ) : (

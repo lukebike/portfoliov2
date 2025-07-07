@@ -54,13 +54,13 @@ function MediaCard({
           position: "relative",
           zIndex: 2,
           minHeight: 400,
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           color: "white",
           textAlign: "center",
-          height: "100%",
         }}
       >
         <CardContent

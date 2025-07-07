@@ -4,12 +4,12 @@ import type { CardTypes } from "./MediaCard";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 
 export default function CardList() {
   const theme = useTheme();
-
+  const isMobile = useMediaQuery("(min-width: 300px)");
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,16 +27,18 @@ export default function CardList() {
         }}
       >
         <Typography
-          variant="h2"
+          variant="h3"
           sx={{
             color: theme.palette.warning.contrastText,
             mt: 10,
             mb: 5,
             textAlign: "center",
+            fontWeight: 400,
           }}
         >
           My Projects
         </Typography>
+
         <Grid
           container
           spacing={{ lg: 5, xs: 4, xl: 3 }}
