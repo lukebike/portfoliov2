@@ -18,14 +18,16 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
+      style={{ height: "80%" }}
     >
       <Box
         sx={{
-          display: "flex",
+          display: { xs: "flex" },
           flexDirection: { lg: "row", md: "column", xs: "column" },
           justifyContent: "center",
+          placeItems: "center",
           alignItems: "center",
-          height: isMobile ? "90vh" : "80vh",
+          height: "100%",
           boxSizing: "border-box",
         }}
       >

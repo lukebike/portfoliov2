@@ -25,6 +25,7 @@ import {
 } from "@mui/material";
 
 import { BrowserRouter, Routes, Route } from "react-router";
+import ContactFormDuo from "./ContactFormDuo.tsx";
 function App() {
   const isMobile = useMediaQuery("(max-width: 600px)");
   const [mode, setMode] = useState<"light" | "dark">("dark");
@@ -49,7 +50,7 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ height: "100%" }}>
           {isMobile ? (
             <MobileMenuBar
               navTexts={["Home", "About", "Projects", "Contact"]}
@@ -68,7 +69,7 @@ function App() {
             <Route path="home" element={<Home mode={mode} />} />
             <Route path="about" element={<About />} />
             <Route path="projects" element={<CardList />} />
-            <Route path="contact" element={<ContactForm />} />
+            <Route path="contact" element={<ContactFormDuo />} />
           </Routes>
           <Footer />
         </Container>

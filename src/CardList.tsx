@@ -16,10 +16,11 @@ export default function CardList() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
+      style={{ height: "80%" }}
     >
       <Box
         sx={{
-          display: { lg: "xl" },
+          height: "80%",
           width: "100%",
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
@@ -42,7 +43,7 @@ export default function CardList() {
           spacing={{ lg: 5, xs: 4 }}
           justifyContent="space-around"
           sx={{
-            flexDirection: { xs: "row", xl: "column" },
+            flexDirection: { xs: "row" },
             width: { xl: "100%" },
             alignItems: "center",
           }}

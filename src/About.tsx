@@ -23,10 +23,12 @@ export default function Home() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
+      style={{ height: "80%" }}
     >
       <Box
         sx={{
           display: { lg: "flex" },
+          height: "100%",
           justifyContent: "center",
           alignItems: "center",
         }}
