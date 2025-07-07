@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 
 export default function ContactFormDuo() {
   const theme = useTheme();
-  const isMobile = useMediaQuery("(min-width-600px)");
+  const isMobile = useMediaQuery("(min-width: 200px)");
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -38,7 +38,7 @@ export default function ContactFormDuo() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
-      style={{ height: "100%" }}
+      style={{ height: isMobile ? "100dvh" : "" }}
     >
       <Box
         sx={{
@@ -49,7 +49,7 @@ export default function ContactFormDuo() {
         }}
       >
         {isMobile ? (
-          <Typography variant="h5" sx={{ mb: 5 }}>
+          <Typography variant="h3" sx={{ mb: 5 }}>
             Contact Me!
           </Typography>
         ) : (

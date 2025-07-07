@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material";
-import MotionWrapper from "./MotionWrapper";
 import { motion } from "framer-motion";
 
 export default function CardList() {
@@ -20,12 +19,11 @@ export default function CardList() {
     >
       <Box
         sx={{
-          height: "80%",
+          height: "100%",
           width: "100%",
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
           alignItems: "center",
-          marginBottom: 15,
         }}
       >
         <Typography
@@ -41,7 +39,7 @@ export default function CardList() {
         </Typography>
         <Grid
           container
-          spacing={{ lg: 5, xs: 4 }}
+          spacing={{ lg: 5, xs: 4, xl: 3 }}
           justifyContent="space-around"
           sx={{
             flexDirection: { xs: "row" },

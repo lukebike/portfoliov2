@@ -7,8 +7,6 @@ import "./App.css";
 import Home from "./Home.tsx";
 import MenuBar from "./MenuBar.tsx";
 import Footer from "./Footer.tsx";
-
-import ContactForm from "./ContactForm.tsx";
 import About from "./About.tsx";
 import MobileMenuBar from "./MobileMenuBar.tsx";
 import { lightThemeOptions, darkThemeOptions } from "./ThemeOptions";

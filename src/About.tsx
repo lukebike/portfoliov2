@@ -11,11 +11,10 @@ import { aboutItems } from "./info";
 import Heading from "./Heading";
 import { Description } from "@mui/icons-material";
 import CodeIcon from "@mui/icons-material/Code";
-import MotionWrapper from "./MotionWrapper";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const isMobile = useMediaQuery("(max-width:300px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
   const theme = useTheme();
 
   return (
@@ -24,11 +23,16 @@ export default function Home() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
+      style={{
+        minHeight: isMobile ? "100vh" : "",
+        height: "100%",
+      }}
     >
       <Box
         sx={{
+          height: "100%",
           display: { lg: "flex" },
-          marginTop: isMobile ? 15 : 25,
+          marginTop: isMobile ? 10 : 5,
           marginBottom: 20,
           justifyContent: "center",
           alignItems: "center",

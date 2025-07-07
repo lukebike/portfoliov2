@@ -6,9 +6,7 @@ import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
 import { useNavigate } from "react-router";
-import MotionWrapper from "./MotionWrapper";
 import { motion } from "framer-motion";
-import Footer from "./Footer";
 export default function Hero({ mode }: { mode: "light" | "dark" }) {
   const theme = useTheme();
   const navigate = useNavigate();
