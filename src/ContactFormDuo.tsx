@@ -1,9 +1,10 @@
-import { useFormik } from "formik";
+import { Form, Formik, type FormikHelpers } from "formik";
 import * as Yup from "yup";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 import {
   Box,
   Button,
-  InputAdornment,
   TextField,
   Typography,
   useMediaQuery,
@@ -12,26 +13,57 @@ import {
 import { Person, Email, Message } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
+interface ContactFormValues {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function ContactFormDuo() {
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID!;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID!;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY!;
+  const form = useRef<HTMLFormElement>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery("(min-width: 200px)");
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string().required("Name is required"),
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
-      message: Yup.string().required("Message is required"),
-    }),
-    // onSubmit: (values, {resetForm} => {
-    //     resetForm();
-    // })
+
+  const initialValues: ContactFormValues = {
+    name: "",
+    email: "",
+    message: "",
+  };
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    message: Yup.string().required("Message is required"),
   });
+
+  const handleSubmit = async (
+    values: ContactFormValues,
+    { setSubmitting, resetForm }: FormikHelpers<ContactFormValues>
+  ) => {
+    try {
+      if (!form.current) {
+        throw new Error("Invalid form");
+      }
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+        publicKey: PUBLIC_KEY,
+      });
+      alert(
+        "Thank you for messaging, I'll get back to you as soon as possible!"
+      );
+      resetForm();
+    } catch (error) {
+      console.log(error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -60,80 +92,84 @@ export default function ContactFormDuo() {
             Contact Me!
           </Typography>
         )}
-
-        <Box
-          component="form"
-          onSubmit={formik.handleSubmit}
-          sx={{
-            maxWidth: 500,
-            backgroundColor: theme.palette.secondary.main,
-            borderRadius: 3,
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            p: 4,
-            width: "100%",
-          }}
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
         >
-          <TextField
-            label="Name"
-            name="name"
-            fullWidth
-            variant="filled"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.name && Boolean(formik.errors.name)}
-            helperText={formik.touched.name && formik.errors.name}
-            sx={{
-              backgroundColor: theme.palette.background.default,
-            }}
-          />
+          {" "}
+          {({
+            values: any,
+            errors: any,
+            touched: any,
+            handleChange: any,
+            handleBlur: any,
+            isSubmitting: any,
+          }) => (
+            <Box
+              component="form"
+              ref={form}
+              sx={{
+                maxWidth: 500,
+                backgroundColor: theme.palette.secondary.main,
+                borderRadius: 3,
+                display: "flex",
+                flexDirection: "column",
+                gap: 2,
+                p: 4,
+                width: "100%",
+              }}
+            >
+              <TextField
+                label="Name"
+                name="name"
+                fullWidth
+                variant="filled"
+                onChange={handleChange}
+                value={initialValues.name}
+                sx={{
+                  backgroundColor: theme.palette.background.default,
+                }}
+              />
 
-          <TextField
-            label="Email"
-            name="email"
-            type="email"
-            variant="filled"
-            fullWidth
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-            sx={{
-              backgroundColor: theme.palette.background.default,
-            }}
-          />
-          <TextField
-            label="Message"
-            name="message"
-            variant="filled"
-            multiline
-            rows={4}
-            fullWidth
-            value={formik.values.message}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.message && Boolean(formik.errors.message)}
-            helperText={formik.touched.message && formik.errors.message}
-            sx={{
-              backgroundColor: theme.palette.background.default,
-            }}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{
-              backgroundColor: theme.palette.warning.contrastText,
-              "&:hover": {
-                backgroundColor: theme.palette.primary.main,
-              },
-            }}
-          >
-            Submit
-          </Button>
-        </Box>
+              <TextField
+                label="Email"
+                name="email"
+                type="email"
+                variant="filled"
+                fullWidth
+                value={initialValues.email}
+                sx={{
+                  backgroundColor: theme.palette.background.default,
+                }}
+              />
+              <TextField
+                label="Message"
+                name="message"
+                variant="filled"
+                multiline
+                rows={4}
+                fullWidth
+                value={initialValues.message}
+                sx={{
+                  backgroundColor: theme.palette.background.default,
+                }}
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  backgroundColor: theme.palette.warning.contrastText,
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.main,
+                  },
+                }}
+              >
+                Submit
+              </Button>
+            </Box>
+          )}
+        </Formik>
         <h2 className="mt-8 text-xl font-medium text-center text-gray-700 tracking-tight">
           Or connect with me through these platforms:
         </h2>
