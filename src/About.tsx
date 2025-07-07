@@ -26,8 +26,7 @@ export default function Home() {
     >
       <Box
         sx={{
-          minHeight: { xs: "80vh" },
-          height: { lg: "80vh", xs: "100vh" },
+          height: "80vh",
           display: { lg: "flex" },
           justifyContent: "center",
           alignItems: "center",

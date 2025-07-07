@@ -6,6 +6,7 @@ import "@fontsource/roboto/700.css";
 import "./App.css";
 import Home from "./Home.tsx";
 import MenuBar from "./MenuBar.tsx";
+import Footer from "./Footer.tsx";
 
 import ContactForm from "./ContactForm.tsx";
 import About from "./About.tsx";
@@ -69,6 +70,7 @@ function App() {
             <Route path="projects" element={<CardList />} />
             <Route path="contact" element={<ContactForm />} />
           </Routes>
+          <Footer />
         </Container>
       </ThemeProvider>
     </BrowserRouter>

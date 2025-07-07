@@ -19,21 +19,20 @@ export default function CardList() {
     >
       <Box
         sx={{
-          minHeight: { lg: "80vh", md: "80vh" },
           display: { lg: "flex" },
           width: "100%",
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
           alignItems: "center",
+          marginBottom: 2,
         }}
       >
         <Typography
-          variant="h3"
+          variant="h2"
           sx={{
             color: theme.palette.primary.main,
-            fontWeight: "bold",
-            mt: { xs: 10 },
-            mb: { lg: 20, xs: 10 },
+            mt: 10,
+            mb: 5,
             textAlign: "center",
           }}
         >
