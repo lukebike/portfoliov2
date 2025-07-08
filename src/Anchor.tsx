@@ -1,35 +1,35 @@
-import Link from "@mui/material/Link";
-
+import { useTheme } from "@mui/material";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router";
 export default function Anchor({
-  id,
   anchorText,
   anchorLink = "",
 }: {
-  id: string;
   anchorText: string;
   anchorLink: string;
 }) {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (anchorLink.startsWith("#")) {
-      e.preventDefault();
-      const hash = anchorLink.startsWith("#") ? anchorLink : `#${anchorLink}`;
-      if (window.location.hash === hash) {
-        window.location.hash = "";
-        setTimeout(() => {
-          window.location.hash = hash;
-        }, 0);
-      } else {
-        window.location.hash = hash;
-      }
-    }
-  };
+  const navigate = useNavigate();
+  const theme = useTheme();
+  const href = anchorLink.toLowerCase();
+  // const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  //   if (anchorLink.startsWith("#")) {
+  //     e.preventDefault();
+  //     const hash = anchorLink.startsWith("#") ? anchorLink : `#${anchorLink}`;
+  //     if (window.location.hash === hash) {
+  //       window.location.hash = "";
+  //       setTimeout(() => {
+  //         window.location.hash = hash;
+  //       }, 0);
+  //     } else {
+  //       window.location.hash = hash;
+  //     }
+  //   }
+  // };
 
   return (
-    <Link
-      href={anchorLink}
-      key={id}
+    <Button
       sx={{
-        color: "white",
+        color: theme.palette.warning.contrastText,
         fontWeight: "normal",
         backgroundColor: "transparent",
         border: "none",
@@ -47,7 +47,7 @@ export default function Anchor({
           bottom: 0,
           width: 0,
           height: "2px",
-          background: "#c1121f",
+          background: theme.palette.secondary.main,
           transition: "width 0.2s linear",
         },
         "&:hover::after": {
@@ -61,9 +61,9 @@ export default function Anchor({
           backgroundColor: "transparent",
         },
       }}
-      onClick={handleClick}
+      onClick={() => navigate(`/${href}`, { viewTransition: true })}
     >
       {anchorText}
-    </Link>
+    </Button>
   );
 }

@@ -1,36 +1,21 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-:root {
-  background-color: rgba(28, 28, 32, 255);
-  /* background-image: url(https://images.unsplash.com/photo-1515879218367-8466d910aaa4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-  min-width: 100vw;
-  height: auto;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-}
-
-:root::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+html,
+body {
   height: 100vh;
-  background: inherit;
-  opacity: 0.2;
-  pointer-events: none;
-  z-index: 0;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
 }
 
-body,
 #root {
-  position: relative;
-  z-index: 1;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+.App {
+  height: 100%;
 }

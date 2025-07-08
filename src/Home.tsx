@@ -1,104 +1,129 @@
-import { Box, Button, Typography } from "@mui/material";
-import { iconImageSrcs } from "./images";
-import { aboutItems } from "./info";
+import heroImg from "/undraw_coding_joxb.svg";
+import heroImg2 from "/undraw_coding_joxb2.svg";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material";
+import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
+export default function Hero({ mode }: { mode: "light" | "dark" }) {
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width:300px)");
 
-export default function Home() {
-  const icons = iconImageSrcs;
-  console.log(icons);
   return (
-    <Box sx={{ mt: 30 }}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: isMobile ? "100%" : "95%",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
-          mt: "50px",
-          height: "200px",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          flexBasis: "auto",
+          flexDirection: { lg: "row", md: "column", xs: "column" },
+          justifyContent: "center",
+          placeItems: "center",
+          alignItems: "center",
+
+          // marginTop: isMobile ? 20 : 35,
+          // marginBottom: isMobile ? 5 : 35,
+          boxSizing: "border-box",
         }}
       >
-        <Typography
-          variant="h2"
-          sx={{
-            borderBottom: "solid #00BCD4 3px",
-            height: "70px",
-            flexShrink: 0,
-          }}
-        >
-          About me
-        </Typography>
-        <ul style={{ textAlign: "right", marginRight: "20px" }}>
-          {aboutItems.map((item, idx) => (
-            <li
+        <Box sx={{ textAlign: { xs: "center", sm: "left" }, m: 0, p: 0 }}>
+          <Typography
+            variant={isMobile ? "h3" : "h1"}
+            sx={{
+              color: theme.palette.primary.main,
+              transition:
+                "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+            }}
+          >
+            Hello,
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: {
+                xs: "20px",
+                sm: "20px",
+                md: "25px",
+                lg: "20px",
+                xl: "24px",
+              },
+            }}
+            textAlign={{ xs: "center", sm: "left" }}
+          >
+            My name is Luke Salem
+          </Typography>
+          <Typography
+            sx={{
+              textAlign: { lg: "left", xs: "left", md: "left" },
+              display: "inline",
+            }}
+            component="div"
+          >
+            I'm a developer in{" "}
+            <code
               style={{
-                margin: "5px",
-                flexShrink: "1",
-                overflowWrap: "break-word",
+                fontFamily: "monospace",
+                background: "none",
+                color: theme.palette.primary.main,
+                transition:
+                  "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+                fontSize: "inherit",
               }}
-              key={idx}
             >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          mt: "50px",
-          height: "200px",
-          flexBasis: "auto",
-          justifyContent: "space-between",
-        }}
-      >
-        <Typography
-          variant="h2"
+              {"<>"}development.{"</>"}
+            </code>
+          </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              marginTop: "10px",
+              backgroundColor: theme.palette.error.main,
+              transition:
+                "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+              "&:hover": {
+                backgroundColor: theme.palette.error.dark,
+                color: theme.palette.warning.contrastText,
+              },
+              width: { xs: "100%", sm: "auto" },
+            }}
+            onClick={() => navigate("/projects", { viewTransition: true })}
+          >
+            View my projects!
+          </Button>
+        </Box>
+        <Box
           sx={{
-            borderBottom: "solid #00BCD4 3px",
-            height: "70px",
-          }}
-        >
-          Resumé
-        </Typography>
-        <Typography variant="h4">
-          You can check out my resumé using the button below.
-          <Button variant="outlined">Resumé</Button>
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          mt: "50px",
-          height: "200px",
-        }}
-      >
-        <Typography
-          variant="h2"
-          sx={{
-            borderBottom: "solid #00BCD4 3px",
-            height: "70px",
-          }}
-        >
-          Skills
-        </Typography>
-        <ul
-          style={{
+            maxWidth: { xs: "80vw", lg: "auto", md: "70vw" },
+            maxHeight: { xs: "30vh", lg: "80vh", md: "30vh" },
+            height: "auto",
+            marginTop: { xs: 5, md: 5 },
             display: "flex",
             justifyContent: "center",
-            marginTop: "15px",
-            marginLeft: "auto",
+            alignItems: "center",
           }}
         >
-          {icons.map((src, idx) => (
-            <img
-              key={idx}
-              src={src}
-              alt=""
-              style={{ width: 48, height: 48, marginLeft: "10px" }}
-            />
-          ))}
-        </ul>
+          <img
+            src={mode === "dark" ? heroImg : heroImg2}
+            style={{
+              width: isMobile ? "100%" : "90%",
+              height: "auto",
+              display: "block",
+            }}
+            alt="Coding illustration"
+          />
+        </Box>
       </Box>
-    </Box>
+    </motion.div>
   );
 }

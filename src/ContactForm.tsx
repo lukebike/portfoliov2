@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -6,12 +7,6 @@ function ContactForm() {
     email: "",
     message: "",
   });
-
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     if (evt.target != null) {
@@ -30,149 +25,152 @@ function ContactForm() {
   };
 
   return (
-    <div
-      className={`flex flex-col items-center justify-center min-h-screen transition-opacity duration-700 ease-out ${
-        mounted ? "opacity-100" : "opacity-0"
-      }`}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
     >
-      <h2 className="mb-8 text-3xl font-semibold text-center text-white-800 tracking-tight">
-        Get in Touch
-      </h2>
-      <div
-        className="card card-border w-96"
-        style={{ backgroundColor: "#c1121f" }}
-      >
-        <div className="card-body">
-          <label className="input validator bg-zinc-200 text-gray-900">
-            <svg
-              className="h-[1em] opacity-50"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                strokeWidth="2.5"
-                fill="none"
-                stroke="currentColor"
+      <div className={`flex flex-col items-center justify-center min-h-screen`}>
+        <h2 className="mb-8 text-3xl font-semibold text-center text-white-800 tracking-tight">
+          Get in Touch
+        </h2>
+        <div
+          className="card card-border w-96"
+          style={{ backgroundColor: "#c1121f" }}
+        >
+          <div className="card-body">
+            <label className="input validator bg-zinc-200 text-gray-900">
+              <svg
+                className="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
               >
-                <circle cx="12" cy="8" r="4"></circle>
-                <path d="M4 20c0-4 8-4 8-4s8 0 8 4"></path>
-              </g>
-            </svg>
-            <input
-              className="bg-zinc-200 text-gray-900 focus:bg-zinc-200 focus:text-gray-900"
-              type="text"
-              placeholder="name"
-              value={formData.fullName}
-              onChange={handleChange}
-              id="fullname"
-              name="fullName"
-              autoComplete="off"
-            />
-          </label>
-          <label className="input validator bg-zinc-200 text-gray-900">
-            <svg
-              className="h-[1em] opacity-50"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                strokeWidth="2.5"
-                fill="none"
-                stroke="currentColor"
+                <g
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth="2.5"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="12" cy="8" r="4"></circle>
+                  <path d="M4 20c0-4 8-4 8-4s8 0 8 4"></path>
+                </g>
+              </svg>
+              <input
+                className="bg-zinc-200 text-gray-900 focus:bg-zinc-200 focus:text-gray-900"
+                type="text"
+                placeholder="name"
+                value={formData.fullName}
+                onChange={handleChange}
+                id="fullname"
+                name="fullName"
+                autoComplete="off"
+              />
+            </label>
+            <label className="input validator bg-zinc-200 text-gray-900">
+              <svg
+                className="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
               >
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </g>
-            </svg>
-            <input
-              className="bg-zinc-200 text-gray-900 focus:bg-zinc-200 focus:text-gray-900"
-              type="email"
-              placeholder="mail@site.com"
-              value={formData.email}
-              name="email"
-              id="email"
-              onChange={handleChange}
-              required
-              autoComplete="off"
-            />
-            <div className="validator-hint hidden">
-              Enter valid email address
+                <g
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth="2.5"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </g>
+              </svg>
+              <input
+                className="bg-zinc-200 text-gray-900 focus:bg-zinc-200 focus:text-gray-900"
+                type="email"
+                placeholder="mail@site.com"
+                value={formData.email}
+                name="email"
+                id="email"
+                onChange={handleChange}
+                required
+                autoComplete="off"
+              />
+              <div className="validator-hint hidden">
+                Enter valid email address
+              </div>
+            </label>
+            <label className="input validator bg-zinc-200 text-gray-900">
+              <svg
+                className="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth="2.5"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="M3 7l9 6 9-6"></path>
+                </g>
+              </svg>
+              <input
+                className="bg-zinc-200 text-gray-900 focus:bg-zinc-200 focus:text-gray-900"
+                type="textarea"
+                placeholder="message"
+                value={formData.message}
+                onChange={handleChange}
+                id="message"
+                name="message"
+                autoComplete="off"
+              />
+            </label>
+            <div className="flex justify-center mt-4">
+              <button className="btn w-24" onClick={handleSubmit}>
+                Submit
+              </button>
             </div>
-          </label>
-          <label className="input validator bg-zinc-200 text-gray-900">
-            <svg
-              className="h-[1em] opacity-50"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                strokeWidth="2.5"
-                fill="none"
-                stroke="currentColor"
-              >
-                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                <path d="M3 7l9 6 9-6"></path>
-              </g>
-            </svg>
-            <input
-              className="bg-zinc-200 text-gray-900 focus:bg-zinc-200 focus:text-gray-900"
-              type="textarea"
-              placeholder="message"
-              value={formData.message}
-              onChange={handleChange}
-              id="message"
-              name="message"
-              autoComplete="off"
-            />
-          </label>
-          <div className="flex justify-center mt-4">
-            <button className="btn w-24" onClick={handleSubmit}>
-              Submit
-            </button>
           </div>
         </div>
+        <h2 className="mt-8 text-xl font-medium text-center text-gray-700 tracking-tight">
+          Or connect with me through these platforms:
+        </h2>
+        <div className="flex flex-col items-center gap-4 mt-4">
+          <a
+            href="https://www.linkedin.com/in/luke-salem-17051a231/"
+            target="_blank"
+            className="flex items-center gap-2 text-blue-700 hover:underline"
+          >
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.87 0-2.156 1.46-2.156 2.969v5.698h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.003 3.604 4.605v5.591z" />
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/lukebike"
+            target="_blank"
+            className="flex items-center gap-2 text-gray-800 hover:underline"
+          >
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.011-1.04-.017-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+          <a
+            href="mailto:lukesalem2002@gmail.com"
+            className="flex items-center gap-2 text-red-700 hover:underline"
+          >
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 13.065 2.4 6.6A2 2 0 0 1 4 4h16a2 2 0 0 1 1.6 2.6l-9.6 6.465zm9.6-7.465A4 4 0 0 0 20 2H4a4 4 0 0 0-1.6.6l9.6 6.465 9.6-6.465zM2 8.236V20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.236l-9.6 6.465L2 8.236z" />
+            </svg>
+            Email
+          </a>
+        </div>
       </div>
-      <h2 className="mt-8 text-xl font-medium text-center text-gray-700 tracking-tight">
-        Or connect with me through these platforms:
-      </h2>
-      <div className="flex flex-col items-center gap-4 mt-4">
-        <a
-          href="https://www.linkedin.com/in/luke-salem-17051a231/"
-          target="_blank"
-          className="flex items-center gap-2 text-blue-700 hover:underline"
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.87 0-2.156 1.46-2.156 2.969v5.698h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.003 3.604 4.605v5.591z" />
-          </svg>
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/lukebike"
-          target="_blank"
-          className="flex items-center gap-2 text-gray-800 hover:underline"
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.011-1.04-.017-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-          </svg>
-          GitHub
-        </a>
-        <a
-          href="mailto:lukesalem2002@gmail.com"
-          className="flex items-center gap-2 text-red-700 hover:underline"
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 13.065 2.4 6.6A2 2 0 0 1 4 4h16a2 2 0 0 1 1.6 2.6l-9.6 6.465zm9.6-7.465A4 4 0 0 0 20 2H4a4 4 0 0 0-1.6.6l9.6 6.465 9.6-6.465zM2 8.236V20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.236l-9.6 6.465L2 8.236z" />
-          </svg>
-          Email
-        </a>
-      </div>
-    </div>
+    </motion.div>
   );
 }
 
