@@ -18,8 +18,7 @@ export default function CardList() {
       transition={{ duration: 0.4 }}
       style={{
         display: "flex",
-        minHeight: isMobile ? "100dvh" : "",
-        height: isMobile ? "100%" : "95%",
+        height: isMobile ? undefined : "95%",
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
@@ -27,7 +26,7 @@ export default function CardList() {
     >
       <Box
         sx={{
-          height: isMobile ? "100dvh" : "80%",
+          height: isMobile ? "auto" : "80%",
           width: "100%",
           flexDirection: "column",
           justifyContent: { xl: "space-around" },

@@ -24,16 +24,19 @@ export default function Home() {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
       style={{
-        display: "flex",
-        height: isMobile ? "100dvh" : "95%",
-        alignItems: "center",
-        justifyContent: "center",
+        display: isMobile ? "block" : "flex",
+        height: isMobile ? "auto" : "95%",
+        alignItems: isMobile ? undefined : "center",
+        justifyContent: isMobile ? undefined : "center",
         width: "100%",
+        paddingTop: isMobile ? "100px" : 0,
+        paddingBottom: isMobile ? "60px" : 0,
+        overflowY: "auto", // allow scrolling on mobil
       }}
     >
       <Box
         sx={{
-          height: "100%",
+          height: isMobile ? "auto" : "100%",
           display: { lg: "flex" },
           justifyContent: "center",
           alignItems: "center",
