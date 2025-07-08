@@ -41,7 +41,11 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
         <Box sx={{ textAlign: { xs: "center", sm: "left" }, m: 0, p: 0 }}>
           <Typography
             variant={isMobile ? "h3" : "h1"}
-            sx={{ color: theme.palette.primary.main }}
+            sx={{
+              color: theme.palette.primary.main,
+              transition:
+                "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+            }}
           >
             Hello,
           </Typography>
@@ -72,6 +76,8 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
                 fontFamily: "monospace",
                 background: "none",
                 color: theme.palette.primary.main,
+                transition:
+                  "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
                 fontSize: "inherit",
               }}
             >
