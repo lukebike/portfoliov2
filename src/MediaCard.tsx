@@ -33,6 +33,11 @@ function MediaCard({
         minHeight: "400",
         overflow: "hidden",
         boxShadow: 6,
+        transition: "box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out",
+        "&:hover": {
+          boxShadow: 12,
+          transform: "translateY(-4px)",
+        },
       }}
     >
       <CardMedia
