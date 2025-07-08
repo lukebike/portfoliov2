@@ -1,35 +1,32 @@
 import Box from "@mui/material/Box";
 import { iconComponents } from "./images";
-import { useTheme } from "@mui/material";
+import { Chip, useTheme } from "@mui/material";
 
 export default function IconGrid() {
   const theme = useTheme();
   return (
     <>
-      {iconComponents.map((IconComponent, idx) => (
-        <Box
+      {iconComponents.map(({ Icon, name }, idx) => (
+        <Chip
+          avatar={
+            <Icon
+              width="100%"
+              height="100%"
+              style={{ display: "block" }}
+              aria-label={`icon-${idx}`}
+            />
+          }
+          label={name}
           key={idx}
           sx={{
-            width: { xs: "20%", sm: 48 },
-            marginRight: { sm: 5 },
-            height: { xs: "60px", sm: 48 },
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
+            marginRight: 1,
             marginBottom: "10px",
-            transition: "color 0.3s",
+            transition: "background-color 0.3s",
             "&:hover": {
-              color: theme.palette.secondary.main,
+              backgroundColor: theme.palette.secondary.main,
             },
           }}
-        >
-          <IconComponent
-            width="100%"
-            height="100%"
-            style={{ display: "block" }}
-            aria-label={`icon-${idx}`}
-          />
-        </Box>
+        />
       ))}
     </>
   );

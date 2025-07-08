@@ -130,10 +130,10 @@ export default function Home() {
           </Grid>
           <Grid size={{ md: 8, xs: 12 }}>
             <Box
-              style={{
+              sx={{
                 display: "flex",
                 flexWrap: "wrap",
-                justifyContent: "flex-start",
+                justifyContent: isMobile ? "center" : "",
               }}
             >
               <IconGrid />
