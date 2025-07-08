@@ -1,9 +1,15 @@
 import { useFormik, type FormikHelpers } from "formik";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton,
   Button,
   TextField,
   Typography,
@@ -19,6 +25,8 @@ interface ContactFormValues {
 }
 
 export default function ContactFormDuo() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMsg, setDialogMsg] = useState("");
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -50,13 +58,15 @@ export default function ContactFormDuo() {
         await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
           publicKey: PUBLIC_KEY,
         });
-        alert(
+        setDialogMsg(
           "Thank you for messaging, I'll get back to you as soon as possible!"
         );
+        setDialogOpen(true);
         resetForm();
       } catch (error) {
         console.log(error);
-        alert("Failed to send message. Please try again.");
+        setDialogMsg("Failed to send message. Please try again.");
+        setDialogOpen(true);
       } finally {
         setSubmitting(false);
       }
@@ -99,7 +109,7 @@ export default function ContactFormDuo() {
           ref={form}
           sx={{
             maxWidth: 500,
-            backgroundColor: theme.palette.secondary.main,
+            backgroundColor: theme.palette.grey[800],
             borderRadius: 3,
             display: "flex",
             flexDirection: "column",
@@ -160,7 +170,8 @@ export default function ContactFormDuo() {
             sx={{
               backgroundColor: theme.palette.warning.contrastText,
               "&:hover": {
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.background.default,
+                color: theme.palette.warning.contrastText,
               },
             }}
           >
@@ -202,6 +213,31 @@ export default function ContactFormDuo() {
           </a>
         </div>
       </Box>
+      <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+        <DialogTitle>
+          Message Status
+          <IconButton
+            aria-label="close"
+            onClick={() => setDialogOpen(false)}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent>
+          <Typography>{dialogMsg}</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setDialogOpen(false)} autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
     </motion.div>
   );
 }
