@@ -22,7 +22,7 @@ const cards: CardListTypes[] = [
     img: springBootImg,
     cardTitle: "Library Management System",
     cardText:
-      "A full-featured Library Management System utilizng Spring Boot, implementing RESTful API endpoints that adhere to common industry conventions. The application enables management of library resources including books, authors, and users, with operations for creating, reading, updating, and deleting records. ",
+      "A full-featured Library Management System utilizing Spring Boot, implementing RESTful API endpoints that adhere to common industry conventions. The application enables management of library resources including books, authors, and users, with operations for creating, reading, updating, and deleting records. ",
     anchorText: "Visit now! (Github)",
     anchorLink: "https://github.com/lukebike/library-system",
   },

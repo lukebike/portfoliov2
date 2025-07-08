@@ -61,15 +61,20 @@ export default function Hero({ mode }: { mode: "light" | "dark" }) {
           </Typography>
           <Typography
             sx={{
-              textAlign: {
-                lg: "left",
-                xs: "left",
-                md: "left",
-              },
+              textAlign: { lg: "left", xs: "left", md: "left" },
+              display: "inline",
             }}
+            component="div"
           >
             I'm a developer in{" "}
-            <code>
+            <code
+              style={{
+                fontFamily: "monospace",
+                background: "none",
+                color: theme.palette.primary.main,
+                fontSize: "inherit",
+              }}
+            >
               {"<>"}development.{"</>"}
             </code>
           </Typography>
