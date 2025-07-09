@@ -6,14 +6,14 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import IconGrid from "./IconGrid";
-import { aboutItems } from "./info";
-import Heading from "./Heading";
+import IconGrid from "../components/IconGrid";
+import { aboutItems } from "../data/aboutInfo";
+import Heading from "../components/Header";
 import { Description } from "@mui/icons-material";
 import CodeIcon from "@mui/icons-material/Code";
 import { motion } from "framer-motion";
 
-export default function Home() {
+export default function About() {
   const isMobile = useMediaQuery("(max-width: 600px)");
   const theme = useTheme();
 
@@ -31,7 +31,7 @@ export default function Home() {
         width: "100%",
         paddingTop: isMobile ? "100px" : 0,
         paddingBottom: isMobile ? "60px" : 0,
-        overflowY: "auto", // allow scrolling on mobil
+        overflowY: "auto",
       }}
     >
       <Box
@@ -44,7 +44,7 @@ export default function Home() {
       >
         <Grid container spacing={{ xs: 5, lg: 10, md: 20 }} sx={{}}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <Heading headingText="About me" />
+            <Heading headerText="About me" />
           </Grid>
           <Grid size={{ md: 8, xs: 12 }}>
             <Box style={{ marginRight: "20px" }}>
@@ -86,7 +86,7 @@ export default function Home() {
             </Box>
           </Grid>
           <Grid size={{ md: 4, xs: 12 }}>
-            <Heading headingText="Resumé" />
+            <Heading headerText="Resumé" />
           </Grid>
           <Grid
             size={{ md: 8, xs: 12 }}
@@ -126,7 +126,7 @@ export default function Home() {
             </Box>
           </Grid>
           <Grid size={{ md: 4, xs: 12 }}>
-            <Heading headingText="Skills" />
+            <Heading headerText="Skills" />
           </Grid>
           <Grid size={{ md: 8, xs: 12 }}>
             <Box

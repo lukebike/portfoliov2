@@ -14,7 +14,7 @@ type CardTypes = {
   anchorLink: string;
 };
 
-function MediaCard({
+function ProjectCard({
   img = cocktailImg,
   cardTitle,
   cardText,
@@ -117,5 +117,5 @@ function MediaCard({
   );
 }
 
-export { MediaCard };
+export { ProjectCard };
 export type { CardTypes };

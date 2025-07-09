@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import { iconComponents } from "./images";
+import { iconComponents } from "../data/icons";
 import { Chip, useTheme } from "@mui/material";
 
 export default function IconGrid() {

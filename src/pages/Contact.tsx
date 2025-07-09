@@ -24,7 +24,7 @@ interface ContactFormValues {
   message: string;
 }
 
-export default function ContactFormDuo() {
+export default function Contact() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogMsg, setDialogMsg] = useState("");
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;

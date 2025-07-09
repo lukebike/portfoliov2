@@ -11,20 +11,6 @@ export default function Anchor({
   const navigate = useNavigate();
   const theme = useTheme();
   const href = anchorLink.toLowerCase();
-  // const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-  //   if (anchorLink.startsWith("#")) {
-  //     e.preventDefault();
-  //     const hash = anchorLink.startsWith("#") ? anchorLink : `#${anchorLink}`;
-  //     if (window.location.hash === hash) {
-  //       window.location.hash = "";
-  //       setTimeout(() => {
-  //         window.location.hash = hash;
-  //       }, 0);
-  //     } else {
-  //       window.location.hash = hash;
-  //     }
-  //   }
-  // };
 
   return (
     <Button

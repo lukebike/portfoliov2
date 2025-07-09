@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-export default function Heading({ headingText }: { headingText: string }) {
+export default function Header({ headerText }: { headerText: string }) {
   const isMobile = useMediaQuery("(max-width:600px)");
   const theme = useTheme();
   return (
@@ -28,7 +28,7 @@ export default function Heading({ headingText }: { headingText: string }) {
           px: 0.2,
         }}
       >
-        {headingText}
+        {headerText}
       </Typography>
     </Box>
   );
