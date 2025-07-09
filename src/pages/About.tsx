@@ -99,7 +99,10 @@ export default function About() {
           >
             <Typography
               variant={isMobile ? "h6" : "h4"}
-              sx={{ width: "100%", textAlign: { xs: "center", md: "left" } }}
+              sx={{
+                width: "100%",
+                textAlign: { xs: "center", md: "left", fontWeight: 300 },
+              }}
             >
               You can check out my resumé using the button below.
             </Typography>
