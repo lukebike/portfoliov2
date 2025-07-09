@@ -1,6 +1,6 @@
-import springBootImg from "./assets/spring-boot.webp";
-import expressImg from "./assets/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_zojuy79lo3fn3qdt7g6p-removebg-preview.png";
-import reactImg from "./assets/0_x-HyaNxF4CJW0gSc.png";
+import springBootImg from "../assets/spring-boot.webp";
+import expressImg from "../assets/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_zojuy79lo3fn3qdt7g6p-removebg-preview.png";
+import reactImg from "../assets/0_x-HyaNxF4CJW0gSc.png";
 
 type CardListTypes = {
   img?: string;

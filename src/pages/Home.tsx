@@ -7,7 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
 import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
-export default function Hero({ mode }: { mode: "light" | "dark" }) {
+export default function Home({ mode }: { mode: "light" | "dark" }) {
   const theme = useTheme();
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width:300px)");

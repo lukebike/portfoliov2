@@ -24,7 +24,7 @@ interface ContactFormValues {
   message: string;
 }
 
-export default function ContactFormDuo() {
+export default function Contact() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogMsg, setDialogMsg] = useState("");
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -95,7 +95,7 @@ export default function ContactFormDuo() {
         }}
       >
         {isMobile ? (
-          <Typography variant="h3" sx={{ mb: 5, fontWeight: "400" }}>
+          <Typography variant="h3" sx={{ mb: 5, fontWeight: "300" }}>
             Contact Me!
           </Typography>
         ) : (
@@ -168,10 +168,11 @@ export default function ContactFormDuo() {
             type="submit"
             variant="contained"
             sx={{
-              backgroundColor: theme.palette.warning.contrastText,
+              backgroundColor: theme.palette.background.default,
+              color: theme.palette.warning.contrastText,
               "&:hover": {
-                backgroundColor: theme.palette.background.default,
-                color: theme.palette.warning.contrastText,
+                backgroundColor: theme.palette.warning.contrastText,
+                color: theme.palette.background.default,
               },
             }}
           >

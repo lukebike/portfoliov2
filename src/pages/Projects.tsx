@@ -1,14 +1,13 @@
-import cards from "./cardInfo";
-import { MediaCard } from "./MediaCard";
-import type { CardTypes } from "./MediaCard";
+import cards from "../data/projectCardInfo";
+import { ProjectCard } from "../components/ProjectCard";
+import type { CardTypes } from "../components/ProjectCard";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 
-export default function CardList() {
-  const theme = useTheme();
+export default function Projects() {
   const isMobile = useMediaQuery("(max-width: 600px)");
   return (
     <motion.div
@@ -33,18 +32,15 @@ export default function CardList() {
           alignItems: "center",
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            color: theme.palette.warning.contrastText,
-            mt: 10,
-            mb: 5,
-            textAlign: "center",
-            fontWeight: 400,
-          }}
-        >
-          My Projects
-        </Typography>
+        {isMobile ? (
+          <Typography variant="h3" sx={{ mb: 5, fontWeight: "400" }}>
+            My Projects
+          </Typography>
+        ) : (
+          <Typography variant="h2" sx={{ mb: 5, textAlign: "center" }}>
+            My Projects
+          </Typography>
+        )}
 
         <Grid
           container
@@ -58,7 +54,7 @@ export default function CardList() {
         >
           {cards.map((card: CardTypes, idx: number) => (
             <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 6, xl: 6 }}>
-              <MediaCard {...card} />
+              <ProjectCard {...card} />
             </Grid>
           ))}
         </Grid>

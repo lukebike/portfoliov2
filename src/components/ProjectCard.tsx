@@ -3,7 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-import cocktailImg from "./assets/cocktailproject.png";
+import cocktailImg from "../assets/cocktailproject.png";
 import { Button, Box, useTheme } from "@mui/material";
 
 type CardTypes = {
@@ -14,7 +14,7 @@ type CardTypes = {
   anchorLink: string;
 };
 
-function MediaCard({
+function ProjectCard({
   img = cocktailImg,
   cardTitle,
   cardText,
@@ -80,7 +80,7 @@ function MediaCard({
           <Typography
             gutterBottom
             variant="h4"
-            sx={{ fontWeight: "bold", mb: 2 }}
+            sx={{ fontWeight: "300", mb: 2 }}
           >
             {cardTitle}
           </Typography>
@@ -117,5 +117,5 @@ function MediaCard({
   );
 }
 
-export { MediaCard };
+export { ProjectCard };
 export type { CardTypes };
