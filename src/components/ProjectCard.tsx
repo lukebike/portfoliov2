@@ -3,7 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-import cocktailImg from "./assets/cocktailproject.png";
+import cocktailImg from "../assets/cocktailproject.png/";
 import { Button, Box, useTheme } from "@mui/material";
 
 type CardTypes = {
