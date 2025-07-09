@@ -95,7 +95,7 @@ export default function ContactFormDuo() {
         }}
       >
         {isMobile ? (
-          <Typography variant="h3" sx={{ mb: 5, fontWeight: "400" }}>
+          <Typography variant="h3" sx={{ mb: 5, fontWeight: "300" }}>
             Contact Me!
           </Typography>
         ) : (
@@ -168,10 +168,11 @@ export default function ContactFormDuo() {
             type="submit"
             variant="contained"
             sx={{
-              backgroundColor: theme.palette.warning.contrastText,
+              backgroundColor: theme.palette.background.default,
+              color: theme.palette.warning.contrastText,
               "&:hover": {
-                backgroundColor: theme.palette.background.default,
-                color: theme.palette.warning.contrastText,
+                backgroundColor: theme.palette.warning.contrastText,
+                color: theme.palette.background.default,
               },
             }}
           >

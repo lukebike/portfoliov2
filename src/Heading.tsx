@@ -17,7 +17,7 @@ export default function Heading({ headingText }: { headingText: string }) {
         variant={isMobile ? "h3" : "h2"}
         sx={{
           display: "inline-block",
-          fontWeight: "400",
+          fontWeight: "300",
           textAlign: { xs: "center", lg: "left", md: "center" },
           whiteSpace: "nowrap",
           borderBottom: "solid 2px",

@@ -80,7 +80,7 @@ function MediaCard({
           <Typography
             gutterBottom
             variant="h4"
-            sx={{ fontWeight: "bold", mb: 2 }}
+            sx={{ fontWeight: "300", mb: 2 }}
           >
             {cardTitle}
           </Typography>

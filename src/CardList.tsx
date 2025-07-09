@@ -33,18 +33,15 @@ export default function CardList() {
           alignItems: "center",
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            color: theme.palette.warning.contrastText,
-            mt: 10,
-            mb: 5,
-            textAlign: "center",
-            fontWeight: 400,
-          }}
-        >
-          My Projects
-        </Typography>
+        {isMobile ? (
+          <Typography variant="h3" sx={{ mb: 5, fontWeight: "400" }}>
+            My Projects
+          </Typography>
+        ) : (
+          <Typography variant="h2" sx={{ mb: 5, textAlign: "center" }}>
+            My Projects
+          </Typography>
+        )}
 
         <Grid
           container
