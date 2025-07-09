@@ -109,6 +109,7 @@ export default function About() {
                 justifyContent: { xs: "center", md: "flex-start" },
                 mt: 2,
                 width: "100%",
+                gap: 2,
               }}
             >
               <Button
@@ -116,12 +117,36 @@ export default function About() {
                 sx={{
                   color: theme.palette.secondary.main,
                   borderColor: theme.palette.secondary.main,
+                  transition:
+                    "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+                  "&:hover": {
+                    color: theme.palette.warning.contrastText,
+                    backgroundColor: theme.palette.secondary.main,
+                  },
                 }}
                 endIcon={<Description />}
-                href="/CV.pdf"
+                href="/Luke Salem CV ENG.pdf"
                 download
               >
-                Resumé
+                Resumé ENG
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{
+                  color: theme.palette.secondary.main,
+                  borderColor: theme.palette.secondary.main,
+                  transition:
+                    "background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1)",
+                  "&:hover": {
+                    color: theme.palette.warning.contrastText,
+                    backgroundColor: theme.palette.secondary.main,
+                  },
+                }}
+                endIcon={<Description />}
+                href="/Luke Salem CV SE.pdf"
+                download
+              >
+                Resumé SE
               </Button>
             </Box>
           </Grid>
