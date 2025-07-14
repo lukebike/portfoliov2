@@ -47,13 +47,13 @@ export default function Projects() {
           spacing={{ lg: 5, xs: 4, xl: 3 }}
           justifyContent="space-around"
           sx={{
-            flexDirection: { xs: "row" },
+            flexDirection: "row",
             width: { xl: "100%" },
             alignItems: "center",
           }}
         >
           {cards.map((card: CardTypes, idx: number) => (
-            <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 6, xl: 6 }}>
+            <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 6, xl: 8 }}>
               <ProjectCard {...card} />
             </Grid>
           ))}
