@@ -1,7 +1,7 @@
 import springBootImg from "../assets/spring-boot.webp";
 import expressImg from "../assets/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_zojuy79lo3fn3qdt7g6p-removebg-preview.png";
 import reactImg from "../assets/0_x-HyaNxF4CJW0gSc.png";
-
+import planifyImg from "../assets/TodoLight.png";
 type CardListTypes = {
   img?: string;
   cardTitle: string;
@@ -12,9 +12,16 @@ type CardListTypes = {
 
 const cards: CardListTypes[] = [
   {
+    img: planifyImg,
+    cardTitle: "Planify",
+    cardText: `Planify is a simple and powerful to-do list app that helps you stay organized. Create multiple lists, plan your tasks, and keep everything in one place. Whether it’s work, school, or personal goals, Planify makes task management easy and efficient.`,
+    anchorText: "Visit now!",
+    anchorLink: "https://lukesalem-planify.vercel.app/",
+  },
+  {
     cardTitle: "The Cocktail DB",
     cardText:
-      "A cocktail information website fetching information from an API and built utilizing vanilla Javascript and Bulma CSS",
+      "Cocktail information website fetching information from an API and built utilizing vanilla Javascript and Bulma CSS",
     anchorText: "Visit now!",
     anchorLink: "https://cocktailapi-lukesalem.netlify.app/",
   },
@@ -22,15 +29,15 @@ const cards: CardListTypes[] = [
     img: springBootImg,
     cardTitle: "Library Management System",
     cardText:
-      "A full-featured Library Management System utilizing Spring Boot, implementing RESTful API endpoints that adhere to common industry conventions. The application enables management of library resources including books, authors, and users, with operations for creating, reading, updating, and deleting records. ",
+      "Full-featured Library Management System utilizing Spring Boot, implementing RESTful API endpoints that adhere to common industry conventions. The application enables management of library resources including books, authors, and users, with operations for creating, reading, updating, and deleting records. ",
     anchorText: "Visit now! (Github)",
     anchorLink: "https://github.com/lukebike/library-system",
   },
   {
     img: expressImg,
-    cardTitle: "The Cocktail DB",
+    cardTitle: "TechGear",
     cardText:
-      "A project that implements RESTful API endpoints utilizing Node.js and Express.js with SQLite as a database.",
+      "School project that implements RESTful API endpoints utilizing Node.js and Express.js with SQLite as a database.",
     anchorText: "Visit now! (Github)",
     anchorLink: "https://github.com/lukebike/TechGear",
   },
