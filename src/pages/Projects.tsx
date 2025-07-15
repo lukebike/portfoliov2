@@ -20,13 +20,12 @@ export default function Projects() {
         height: isMobile ? undefined : "95%",
         alignItems: "center",
         justifyContent: "center",
-        width: "100%",
       }}
     >
       <Box
         sx={{
           height: isMobile ? "auto" : "80%",
-          width: "100%",
+
           flexDirection: "column",
           justifyContent: { xl: "space-around" },
           alignItems: "center",
@@ -48,12 +47,21 @@ export default function Projects() {
           justifyContent="space-around"
           sx={{
             flexDirection: "row",
-            width: { xl: "100%" },
+            width: { xs: "100%", lg: 500 },
             alignItems: "center",
           }}
         >
           {cards.map((card: CardTypes, idx: number) => (
-            <Grid key={idx} size={{ xs: 12, sm: 6, md: 6, lg: 6, xl: 8 }}>
+            <Grid
+              key={idx}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 6,
+                lg: 12,
+                xl: 12,
+              }}
+            >
               <ProjectCard {...card} />
             </Grid>
           ))}
