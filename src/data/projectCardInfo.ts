@@ -14,7 +14,7 @@ const cards: CardListTypes[] = [
   {
     img: planifyImg,
     cardTitle: "Planify",
-    cardText: `Planify is a simple and powerful to-do list app that helps you stay organized. Create multiple lists, plan your tasks, and keep everything in one place. Whether it’s work, school, or personal goals, Planify makes task management easy and efficient.`,
+    cardText: `Planify is a simple and powerful to-do list app that helps you stay organized. Create multiple lists, plan your tasks, and keep everything in one place.`,
     anchorText: "Visit now!",
     anchorLink: "https://lukesalem-planify.vercel.app/",
   },
@@ -29,7 +29,7 @@ const cards: CardListTypes[] = [
     img: springBootImg,
     cardTitle: "Library Management System",
     cardText:
-      "Full-featured Library Management System utilizing Spring Boot, implementing RESTful API endpoints that adhere to common industry conventions. The application enables management of library resources including books, authors, and users, with operations for creating, reading, updating, and deleting records. ",
+      "Full-featured CRUD Library Management System utilizing Spring Boot, implementing RESTful API endpoints that adhere to common industry conventions",
     anchorText: "Visit now! (Github)",
     anchorLink: "https://github.com/lukebike/library-system",
   },

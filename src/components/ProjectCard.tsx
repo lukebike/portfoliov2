@@ -72,7 +72,6 @@ function ProjectCard({
         <CardContent
           sx={{
             flex: "1 1 auto",
-            overflowY: "auto",
             maxHeight: 210,
             width: "100%",
             mb: 2,

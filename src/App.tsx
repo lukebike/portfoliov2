@@ -6,7 +6,6 @@ import "@fontsource/roboto/700.css";
 import "./App.css";
 import Home from "./pages/Home.tsx";
 import MenuBar from "./layout/MenuBar.tsx";
-import Footer from "./layout/Footer.tsx";
 import About from "./pages/About.tsx";
 import MobileMenuBar from "./layout/MobileMenuBar.tsx";
 import { lightThemeOptions, darkThemeOptions } from "./theme/ThemeOptions.tsx";
@@ -69,7 +68,6 @@ function App() {
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} />
           </Routes>
-          <Footer />
         </Container>
       </ThemeProvider>
     </BrowserRouter>
