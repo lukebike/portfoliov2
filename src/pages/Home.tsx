@@ -72,7 +72,7 @@ export default function Home({ mode }: { mode: "light" | "dark" }) {
               }}
               component="div"
             >
-              I'm a developer in{" "}
+              I'm an aspiring{" "}
               <code
                 style={{
                   fontFamily: "monospace",
@@ -83,7 +83,7 @@ export default function Home({ mode }: { mode: "light" | "dark" }) {
                   fontSize: "inherit",
                 }}
               >
-                {"<>"}development.{"</>"}
+                {}full-stack developer.{}
               </code>
             </Typography>
             <Button

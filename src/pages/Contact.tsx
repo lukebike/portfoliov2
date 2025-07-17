@@ -98,11 +98,11 @@ export default function Contact() {
         >
           {isMobile ? (
             <Typography variant="h3" sx={{ mb: 5, fontWeight: "300" }}>
-              Contact Me!
+              Hire Me!
             </Typography>
           ) : (
             <Typography variant="h2" sx={{ mb: 5 }}>
-              Contact Me!
+              Hire Me!
             </Typography>
           )}
           <Box
