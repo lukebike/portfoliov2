@@ -2,6 +2,7 @@ import springBootImg from "../assets/spring-boot.webp";
 import expressImg from "../assets/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_zojuy79lo3fn3qdt7g6p-removebg-preview.png";
 import reactImg from "../assets/0_x-HyaNxF4CJW0gSc.png";
 import planifyImg from "../assets/TodoLight.png";
+import goombaImg from "../assets/FgSnvZsWIAIliF6-removebg-preview.png";
 type CardListTypes = {
   img?: string;
   cardTitle: string;
@@ -11,6 +12,13 @@ type CardListTypes = {
 };
 
 const cards: CardListTypes[] = [
+  {
+    img: goombaImg,
+    cardTitle: "Goomba Bot",
+    cardText: `A Discord bot built with Javascript, Node.js, Meta AI and discord.js. Supports role assignment, team making, event creation, learning from user messages to generate fun, randomized responses when pinged, birthday pings, dynamic bot status based on server activity and integrated AI chat for conversational interaction.`,
+    anchorText: "Visit now! (Github)",
+    anchorLink: "https://github.com/lukebike/goombaBot",
+  },
   {
     img: planifyImg,
     cardTitle: "Planify",
@@ -29,7 +37,7 @@ const cards: CardListTypes[] = [
     img: springBootImg,
     cardTitle: "Library Management System",
     cardText:
-      "Full-featured CRUD Library Management System utilizing Spring Boot, implementing RESTful API endpoints that adhere to common industry conventions",
+      "A full-featured CRUD Library Management System built with Java, Spring Boot that implements RESTful API endpoints and uses Spring Data JPA for repositories and SQLite for the database",
     anchorText: "Visit now! (Github)",
     anchorLink: "https://github.com/lukebike/library-system",
   },
@@ -44,7 +52,8 @@ const cards: CardListTypes[] = [
   {
     img: reactImg,
     cardTitle: "Portfolio",
-    cardText: "The project you're currently viewing :)",
+    cardText:
+      "Portfolio built with React, Typescript and Material UI that showcases all my previous projects and my background.",
     anchorText: "Visit now!",
     anchorLink: "/home",
   },
