@@ -53,7 +53,7 @@ export default function Projects() {
             justifyContent="space-around"
             sx={{
               flexDirection: "row",
-              width: { xs: "100%", lg: 500 },
+              width: { xs: "100%", lg: 1000 },
               alignItems: "center",
             }}
           >
@@ -65,7 +65,7 @@ export default function Projects() {
                   sm: 6,
                   md: 6,
                   lg: 12,
-                  xl: 12,
+                  xl: 6,
                 }}
               >
                 <ProjectCard {...card} />
