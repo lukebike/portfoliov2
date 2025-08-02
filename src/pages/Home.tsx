@@ -1,5 +1,5 @@
-import heroImg from "/undraw_coding_joxb.svg";
-import heroImg2 from "/undraw_coding_joxb2.svg";
+import heroImg from "../assets/undraw_coding_joxb.svg";
+import heroImg2 from "../assets/undraw_coding_joxb2.svg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";

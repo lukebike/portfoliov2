@@ -15,7 +15,7 @@ const cards: CardListTypes[] = [
   {
     img: goombaImg,
     cardTitle: "Goomba Bot",
-    cardText: `A Discord bot built with Javascript, Node.js, Meta AI and discord.js. Supports role assignment, team making, event creation, learning from user messages to generate fun, randomized responses when pinged, birthday pings, dynamic bot status based on server activity and integrated AI chat for conversational interaction.`,
+    cardText: `A Discord bot built with Javascript, Node.js, Meta AI and discord.js. Supports role assignment, team making, event creation, randomized responses when pinged, birthday pings, dynamic bot status, and AI chat for conversations.`,
     anchorText: "Visit now! (Github)",
     anchorLink: "https://github.com/lukebike/goombaBot",
   },
