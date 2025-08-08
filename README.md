@@ -4,12 +4,11 @@ This is my personal portfolio website, built with **React**, **TypeScript**, **V
 
 ## Features
 
-- ⚡️ Fast, modern React app with Vite
-- 🎨 Responsive design using Material UI and Tailwind CSS
-- 📄 Home, About, Projects, and Contact pages
-- 📧 Contact form powered by [EmailJS](https://www.emailjs.com/)
-- 🌙 Light/Dark mode toggle
-- 🛠️ Skills grid with SVG icons
+- Fast, modern React app with Vite
+- Responsive design using Material UI and Tailwind CSS
+- Home, About, Projects, and Contact pages
+- Contact form powered by [EmailJS](https://www.emailjs.com/)
+- Light/Dark mode toggle
 
 ## Getting Started
 
@@ -44,14 +43,6 @@ To build for production:
 npm run build
 ```
 
-### Lint
-
-To run ESLint:
-
-```sh
-npm run lint
-```
-
 ## Project Structure
 
 - `src/` — Main source code
@@ -72,9 +63,5 @@ VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
-
-## Deployment
-
-You can deploy this site to any static hosting provider (e.g., Vercel, Netlify).
 
 **Made with ❤️ by Luke Salem**
