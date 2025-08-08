@@ -3,6 +3,7 @@ import expressImg from "../assets/https___dev-to-uploads.s3.amazonaws.com_upload
 import reactImg from "../assets/0_x-HyaNxF4CJW0gSc.png";
 import planifyImg from "../assets/TodoLight.png";
 import goombaImg from "../assets/FgSnvZsWIAIliF6-removebg-preview.png";
+import minBibliotekImg from "../assets/minBibliotek.png";
 type CardListTypes = {
   img?: string;
   cardTitle: string;
@@ -12,6 +13,14 @@ type CardListTypes = {
 };
 
 const cards: CardListTypes[] = [
+  {
+    img: minBibliotekImg,
+    cardTitle: "Min Bibliotek",
+    cardText:
+      "A full-stack CRUD Library Management System built with React, MUI & MUI X Datagrid, Typescript, Java, Spring Boot and SQLite for the database",
+    anchorText: "Visit now!",
+    anchorLink: "https://github.com/lukebike/MinBibliotek",
+  },
   {
     img: goombaImg,
     cardTitle: "Goomba Bot",
@@ -33,19 +42,12 @@ const cards: CardListTypes[] = [
     anchorText: "Visit now!",
     anchorLink: "https://cocktailapi-lukesalem.netlify.app/",
   },
-  {
-    img: springBootImg,
-    cardTitle: "Library Management System",
-    cardText:
-      "A full-featured CRUD Library Management System built with Java, Spring Boot that implements RESTful API endpoints and uses Spring Data JPA for repositories and SQLite for the database",
-    anchorText: "Visit now! (Github)",
-    anchorLink: "https://github.com/lukebike/library-system",
-  },
+
   {
     img: expressImg,
     cardTitle: "TechGear",
     cardText:
-      "School project that implements RESTful API endpoints utilizing Node.js and Express.js with SQLite as a database.",
+      "An Express.js app that implements RESTful API endpoints utilizing Node.js with SQLite as a database.",
     anchorText: "Visit now! (Github)",
     anchorLink: "https://github.com/lukebike/TechGear",
   },
