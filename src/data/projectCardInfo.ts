@@ -1,4 +1,3 @@
-import springBootImg from "../assets/spring-boot.webp";
 import expressImg from "../assets/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_zojuy79lo3fn3qdt7g6p-removebg-preview.png";
 import reactImg from "../assets/0_x-HyaNxF4CJW0gSc.png";
 import planifyImg from "../assets/TodoLight.png";
@@ -15,11 +14,11 @@ type CardListTypes = {
 const cards: CardListTypes[] = [
   {
     img: minBibliotekImg,
-    cardTitle: "Min Bibliotek",
+    cardTitle: "My Bibliotek",
     cardText:
       "A full-stack CRUD Library Management System built with React, MUI & MUI X Datagrid, Typescript, Java, Spring Boot and SQLite for the database",
     anchorText: "Visit now!",
-    anchorLink: "https://github.com/lukebike/MinBibliotek",
+    anchorLink: "https://mybibliotek.netlify.app/",
   },
   {
     img: goombaImg,
