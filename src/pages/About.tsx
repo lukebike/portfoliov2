@@ -27,7 +27,6 @@ export default function About() {
         transition={{ duration: 0.4 }}
         style={{
           display: isMobile ? "block" : "flex",
-          height: isMobile ? "auto" : "95%",
           alignItems: isMobile ? undefined : "center",
           justifyContent: isMobile ? undefined : "center",
           width: "100%",

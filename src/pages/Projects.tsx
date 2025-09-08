@@ -64,7 +64,7 @@ export default function Projects() {
                   xs: 12,
                   sm: 6,
                   md: 6,
-                  lg: 12,
+                  lg: 6,
                   xl: 6,
                 }}
               >
